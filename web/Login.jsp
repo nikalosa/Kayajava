@@ -1,17 +1,15 @@
 
 <html>
 <head>
-<title>Quiz Website</title>
+<title>Login</title>
+
 </head>
+
 <link rel = "stylesheet" type="text/css" href = "css/bootstrap.css">
-<link rel = "stylesheet" type="text/css" href = "css/mycss.css">
+<link rel = "stylesheet" type="text/css" href = "css/bootstrap.min.css">
+<link rel = "stylesheet" type="text/css" href = "mycss.css">
 <body>
 
-
-
-
-
-<div class="page-header">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
    <div class="navbar-header">
@@ -19,16 +17,15 @@
    </div>
 	<a class="navbar-brand" href="#">KayaJava</a>
    
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   <div class="collapse navbar-collapse" id="">
       <ul class="nav navbar-nav">
        
       </ul>
       <form class="navbar-form navbar-left">
         
-        <div class="form-group">
   		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           <input type="text" class="form-control" placeholder="Search">
-        </div>
+        
       </form>
       
       
@@ -39,69 +36,44 @@
 		<button class="btn btn-primary" type="button">
 		Messages <span class="badge">4</span>
 		</button>
-        
-        
-        
-      </form>
+    	</form>    
       
       
     </div>
     </div><!-- /.container-fluid -->
 </nav>
-</div>
-
-
-<!-- lets make slide with sign up button using bootstrap css -->
-
-<div class="carousel-inner" role="listbox">
-        <div class="item active">
-        <img src= "store-images/shell.jpg" id="main">
-          <div class="carousel-caption d-none d-md-block">
-        
-        <h1>Check your general knowledge</h1>
-        	<a class = "btn btn-lg btn-primary" > Sign Up</a>
-        </div>
-        </div>        
-</div>
-
-<h1> </h1>
-<div class="container marketing">
-	<div class= "row"> 
-		<div class= "rowImage" >
-			<img src = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle"  width="140" height="140">
-		
-		<div class="caption"> 
-			<h4>Heading</h4>
-			<p> blablabla</p>
-		</div>
+	
+<!-- This is to create opening till center point -->
+<div class="bg"> </div>
+<!--  this is to add -->
+<div class="row  "> 
+	<div class="form-container">
+	
+	<div class="col-md-4 col-sm4 col-xs-4" ></div>
+	<div class="col-md-3 col-sm3 col-xs-3" >
+			<form class="marg" >
+				<div class=" form-group">
+					<span>Mail</span>
+					<input type="text" class="form-control" placeholder="Your Mail">
+				</div>
+			
+				<div class=" form-group">
+					<span>password</span>
+					<input type="password" class="form-control" placeholder="password" >
+				</div>		
+				<button class="btn btn-primary btn-block" type ="button" > Log In</button>
+			</form>		
 		</div>
 		
-		<div class= "rowImage" >
-			<img src = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="  class="img-circle" width="140" height="140">
-		
-		<div class="caption"> 
-			<h4>Heading</h4>
-			<p> blablabla</p>
-		</div>
-		</div>
-		
-		<div class= "rowImage" >
-			<img src = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle" width="140" height="140">
-		
-		<div class="caption"> 
-			<h4>Heading</h4>
-			<p> blablabla</p>
-		</div>
-		</div>
-		
-		
+<div class="col-md-4 col-sm4 col-xs-4" ></div>
 	</div>
 </div>
 
 
+
 <!-- Footer -->
-<div class="col-md-12 col-sm12 col-xs-12" > <hr></div>
-<footer class="page-footer bla">
+
+<footer class="page-footer pg">
 	<div class="row" style="background-color: #1C2833;">	
 		<!--  this is written to create opening before headline -->
 		<div class="col-md-1 col-sm1 col-xs-1" ></div>
@@ -143,9 +115,11 @@
 </footer>
 
 
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
-
 </body>
 </html>
