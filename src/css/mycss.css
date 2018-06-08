@@ -1,0 +1,19 @@
+#main{
+	height: 80%;
+	width:100%;
+}
+
+
+.rowImage {
+ 	float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
