@@ -4,7 +4,7 @@
 <title>Quiz Website</title>
 </head>
 <link rel = "stylesheet" type="text/css" href = "css/bootstrap.css">
-<link rel = "stylesheet" type="text/css" href = "mycss.css">
+<link rel = "stylesheet" type="text/css" href = "css/mycss.css">
 <body>
 
 
