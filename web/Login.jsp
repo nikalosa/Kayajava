@@ -7,40 +7,34 @@
 
 <link rel = "stylesheet" type="text/css" href = "css/bootstrap.css">
 <link rel = "stylesheet" type="text/css" href = "css/bootstrap.min.css">
-<link rel = "stylesheet" type="text/css" href = "mycss.css">
+<link rel = "stylesheet" type="text/css" href = "css/mycss.css">
 <body>
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-   <div class="navbar-header">
-	<img alt="WebLogo" src="store-images/logo.png">
-   </div>
-	<a class="navbar-brand" href="#">KayaJava</a>
-   
-   <div class="collapse navbar-collapse" id="">
-      <ul class="nav navbar-nav">
-       
-      </ul>
-      <form class="navbar-form navbar-left">
-        
-  		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-          <input type="text" class="form-control" placeholder="Search">
-        
-      </form>
-      
-      
-      <form class="navbar-form navbar-right">
-      <button type="submit" value="login" class="btn btn-default">Log In</button>
-        <button type="submit" value="Register" class="btn btn-default">Register</button>
-        
-		<button class="btn btn-primary" type="button">
-		Messages <span class="badge">4</span>
-		</button>
-    	</form>    
-      
-      
-    </div>
-    </div><!-- /.container-fluid -->
+<nav class="navbar navbar-inverse">
+	<div class= "container-fluid">
+		<div class="navbar-header">
+			<img alt="WebLogo" src="store-images/logo.png">
+		</div>
+		<a class="navbar-brand" style="color:white;" href="#">KayaJava</a>
+		
+		
+		<!-- lets add some information -->
+		<div class="collapse navbar-collapse" id="myCollapseClass">
+			<!-- Using unordered list we  add home,login and register -->
+			<ul class="nav navbar-nav navbar right navig">
+				<li> <a href="MainPage.jsp"> Home</a> </li>
+				<li> <a href="Login.jsp"> Log In</a> </li>
+				<li> <a href="Registration.jsp"> Register</a> </li>
+      		</ul>
+      		
+      		<form class="navbar-form navbar-left">
+       			<div class="form-group">
+		  			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		        	<input type="text" class="form-control" placeholder="Search">
+		        </div>
+		    </form>
+		</div>
+		
+	</div>
 </nav>
 	
 <!-- This is to create opening till center point -->
@@ -85,10 +79,10 @@
 		
 		<!-- this is another 3 part where we will write information -->		 
 		<div class="col-md-2 col-lg-2 col-xl-2">
-			<h2 style="color:white;">Info</h2>
+			<h2 style="color:white;">Information</h2>
 			<hr>
-			<p>  <a href="#!" style="color:white;">Name </a>  </p>
-	        <p>  <a href="#!" style="color:white;">Name</a>  </p>
+			<p>  <a href="#!" style="color:white;">Home </a></p>
+	        <p>  <a href="#!" style="color:white;">About us</a>  </p>
 	        <p>  <a href="#!" style="color:white;">Name</a>  </p>
 		</div>
 			

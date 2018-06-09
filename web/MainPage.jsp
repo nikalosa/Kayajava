@@ -8,48 +8,33 @@
 <body>
 
 
-
-
-
-<div class="page-header">
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-   <div class="navbar-header">
-	<img alt="WebLogo" src="store-images/logo.png">
-   </div>
-	<a class="navbar-brand" href="#">KayaJava</a>
-   
-   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-       
-      </ul>
-      <form class="navbar-form navbar-left">
-        
-        <div class="form-group">
-  		<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-      </form>
-      
-      
-      <form class="navbar-form navbar-right">
-      <button type="submit" value="login" class="btn btn-default">Log In</button>
-        <button type="submit" value="Register" class="btn btn-default">Register</button>
-        
-		<button class="btn btn-primary" type="button">
-		Messages <span class="badge">4</span>
-		</button>
-        
-        
-        
-      </form>
-      
-      
-    </div>
-    </div><!-- /.container-fluid -->
+<nav class="navbar navbar-inverse">
+	<div class= "container-fluid">
+		<div class="navbar-header">
+			<img alt="WebLogo" src="store-images/logo.png">
+		</div>
+		<a class="navbar-brand" style="color:white;" href="#">KayaJava</a>
+		
+		
+		<!-- lets add some information -->
+		<div class="collapse navbar-collapse" id="myCollapseClass">
+			<!-- Using unordered list we  add home,login and register -->
+			<ul class="nav navbar-nav navbar right navig">
+				<li> <a href="MainPage.jsp"> Home</a> </li>
+				<li> <a href="Login.jsp"> Log In</a> </li>
+				<li> <a href="Registration.jsp"> Register</a> </li>
+      		</ul>
+      		
+      		<form class="navbar-form navbar-left">
+       			<div class="form-group">
+		  			<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+		        	<input type="text" class="form-control" placeholder="Search">
+		        </div>
+		    </form>
+		</div>
+		
+	</div>
 </nav>
-</div>
-
 
 <!-- lets make slide with sign up button using bootstrap css -->
 
@@ -64,12 +49,10 @@
         </div>        
 </div>
 
-<h1> </h1>
 <div class="container marketing">
 	<div class= "row"> 
 		<div class= "rowImage" >
 			<img src = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle"  width="140" height="140">
-		
 		<div class="caption"> 
 			<h4>Heading</h4>
 			<p> blablabla</p>
@@ -85,6 +68,7 @@
 		</div>
 		</div>
 		
+		
 		<div class= "rowImage" >
 			<img src = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle" width="140" height="140">
 		
@@ -99,7 +83,9 @@
 </div>
 
 
+
 <!-- Footer -->
+
 <div class="col-md-12 col-sm12 col-xs-12" > <hr></div>
 <footer class="page-footer bla">
 	<div class="row" style="background-color: #1C2833;">	
@@ -113,10 +99,10 @@
 		
 		<!-- this is another 3 part where we will write information -->		 
 		<div class="col-md-2 col-lg-2 col-xl-2">
-			<h2 style="color:white;">Info</h2>
+			<h2 style="color:white;">Information</h2>
 			<hr>
-			<p>  <a href="#!" style="color:white;">Name </a>  </p>
-	        <p>  <a href="#!" style="color:white;">Name</a>  </p>
+			<p>  <a href="#!" style="color:white;">Home </a></p>
+	        <p>  <a href="#!" style="color:white;">About us</a>  </p>
 	        <p>  <a href="#!" style="color:white;">Name</a>  </p>
 		</div>
 			
@@ -141,7 +127,6 @@
 
 	</div>
 </footer>
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

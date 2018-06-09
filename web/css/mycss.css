@@ -3,11 +3,64 @@
 	width:100%;
 }
 
+.navig{
+	float:right;
+}
 
-.rowImage {
- 	float: left;
+.navbar {
+	padding 1% 0;
+	background-color: #34495E;
+	color: #FFF;
+}
+.navbar-brand {
+	color:white;
+	
+}
+
+
+.navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus,
+.navbar-inverse .navbar-nav .active a:hover {
+	background-color: #34495E;
+	
+}
+
+
+
+
+.rowImage{
+  float: left;
   width: 33.33%;
-  padding: 5px;
+  padding:  10%;
+}
+.inf {
+	float: right;
+	clear:none;
+	border: 2px solid;
+	padding-left:10px;
+}
+
+
+.caption{
+  width: 33.33%;
+  padding:  20%;
+}
+
+.bla {
+	margin-top:5%;
+}
+
+.form-container {
+	width:100%;
+	height:100%;
+ 	background-color: #F8F9F9;
+}
+.marg {
+	
+	margin-top:60%;
+}
+
+.bg {
+	background-color: #F8F9F9;
 }
 
 
