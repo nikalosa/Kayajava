@@ -14,8 +14,7 @@
 			<img alt="WebLogo" src="store-images/logo.png">
 		</div>
 		<a class="navbar-brand" style="color:white;" href="#">KayaJava</a>
-		
-		
+
 		<!-- lets add some information -->
 		<div class="collapse navbar-collapse" id="myCollapseClass">
 			<!-- Using unordered list we  add home,login and register -->
