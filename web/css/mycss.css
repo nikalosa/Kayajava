@@ -14,17 +14,34 @@
 }
 .navbar-brand {
 	color:white;
-	
 }
 
+.test {
+	padding-top:50%;
+	margin-bottom:0;
+	padding-bottom:0;
+}
+
+.line1 {
+	border: 2px solid;
+	width:30%;
+	float:right;
+	display: inline-block;
+	background-color: black;
+}
+
+.line2 {
+	border: 2px solid;
+	width:30%;
+	float:left;
+	display: inline-block;
+	background-color: black;
+}
 
 .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus,
 .navbar-inverse .navbar-nav .active a:hover {
-	background-color: #34495E;
-	
+	background-color: #34495E;	
 }
-
-
 
 
 .rowImage{
@@ -55,8 +72,9 @@
  	background-color: #F8F9F9;
 }
 .marg {
+	margin-top:30px;
+	clear:both;
 	
-	margin-top:60%;
 }
 
 .bg {

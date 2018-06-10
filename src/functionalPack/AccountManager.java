@@ -7,7 +7,7 @@ public class AccountManager {
 
     private ConcurrentHashMap <String, User> userMap;
 
-    void AccountManager(){
+    public AccountManager(){
 
         userMap = new ConcurrentHashMap<String, User>();
 

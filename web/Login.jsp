@@ -14,7 +14,7 @@
 		<div class="navbar-header">
 			<img alt="WebLogo" src="store-images/logo.png">
 		</div>
-		<a class="navbar-brand" style="color:white;" href="#">KayaJava</a>
+		<a class="navbar-brand" style="color:white;" href="MainPage.jsp">KayaJava</a>
 		
 		
 		<!-- lets add some information -->
@@ -43,26 +43,43 @@
 <div class="row  "> 
 	<div class="form-container">
 	
+	
+	<!-- action="LoginServlet" method="post" -->
+	
+	
 	<div class="col-md-4 col-sm4 col-xs-4" ></div>
 	<div class="col-md-3 col-sm3 col-xs-3" >
-			<form class="marg" >
-				<div class=" form-group">
-					<span>Mail</span>
-					<input type="text" class="form-control" placeholder="Your Mail">
-				</div>
-			
-				<div class=" form-group">
-					<span>password</span>
-					<input type="password" class="form-control" placeholder="password" >
-				</div>		
-				<button class="btn btn-primary btn-block" type ="button" > Log In</button>
-			</form>		
+		<div class="test" >
+			<!--  Lets give him chance to register too -->
+				<button class="btn btn-primary btn-block" type ="submit" name="password" > Sign Up</button>
+				<hr class="line1" align="right">
+				<hr class="line2" align="left">		
 		</div>
+		<!-- finish  -->
 		
+		<form action="LoginServlet" method="post">
+			<div class="marg">
+				
+				<!--  create fields for login -->
+				<div class=" form-group">
+						<div style="float:left; clear:none;"> <label> Mail </label> </div>
+						<input type="text" class="form-control" placeholder="Your Mail">		
+				</div> <!--  mail field -->
+				
+				<div class=" form-group">
+					<label>password</label>
+					<input type="password" class="form-control" placeholder="password" name="name" >
+				</div><!-- password field -->
+				
+				<button class="btn btn-primary btn-block" type ="submit" name="password" > Log In</button>
+				<!-- button field -->
+			</div>
+		</form>		
+	</div>
+
 <div class="col-md-4 col-sm4 col-xs-4" ></div>
 	</div>
 </div>
-
 
 
 <!-- Footer -->
@@ -81,7 +98,7 @@
 		<div class="col-md-2 col-lg-2 col-xl-2">
 			<h2 style="color:white;">Information</h2>
 			<hr>
-			<p>  <a href="#!" style="color:white;">Home </a></p>
+			<p>  <a href="MainPage.jsp" style="color:white;">Home </a></p>
 	        <p>  <a href="#!" style="color:white;">About us</a>  </p>
 	        <p>  <a href="#!" style="color:white;">Name</a>  </p>
 		</div>
