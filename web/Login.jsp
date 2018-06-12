@@ -57,18 +57,18 @@
 		</div>
 		<!-- finish  -->
 		
-		<form action="LoginServlet" method="post">
+		<form action="LoginServlet" method="POST">
 			<div class="marg">
 				
 				<!--  create fields for login -->
 				<div class=" form-group">
 						<div style="float:left; clear:none;"> <label> Mail </label> </div>
-						<input type="text" class="form-control" placeholder="Your Mail">		
+						<input type="text" class="form-control" placeholder="Your Mail" name="name" >
 				</div> <!--  mail field -->
 				
 				<div class=" form-group">
 					<label>password</label>
-					<input type="password" class="form-control" placeholder="password" name="name" >
+					<input type="password" class="form-control" placeholder="password" name="password" >
 				</div><!-- password field -->
 				
 				<button class="btn btn-primary btn-block" type ="submit" name="password" > Log In</button>

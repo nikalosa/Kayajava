@@ -18,10 +18,10 @@ public class LoginServlet extends HttpServlet {
         String name = request.getParameter("name");
         String pass = request.getParameter("password");
         if(manager.checkAccount(name,pass)) {
-            RequestDispatcher dispatch = request.getRequestDispatcher("MainPage.jsp");
+            RequestDispatcher dispatch = request.getRequestDispatcher("AfterLogin.jsp");
             dispatch.forward(request,response);
         }else {
-            RequestDispatcher dispatch = request.getRequestDispatcher("Registration.html");
+            RequestDispatcher dispatch = request.getRequestDispatcher("Login.jsp");
             dispatch.forward(request,response);
         }
     }

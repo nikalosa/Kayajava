@@ -112,33 +112,34 @@
 	<!--	This is part to add register theme.  -->		
 	<div class="col-md-1 col-sm1 col-xs-1" ></div>
 	<div class="col-md-3 col-sm3 col-xs-3" >
-		<form class="marg" >
-			
+		<form action = "RegisterServlet" method = "POST"  >
+			<div class=" marg">
 			<!-- Mail field -->
 			<div class=" form-group">
 				<span>Mail</span>
-				<input type="text" class="form-control" placeholder="Your Mail">
+				<input type="text" class="form-control" placeholder="Your Mail" name="mail">
 			</div>
 			<!-- password Field -->
 			<div class=" form-group">
 				<span>password</span>
-				<input type="password" class="form-control" placeholder="Password" >
+				<input type="password" class="form-control" placeholder="Password" name="password">
 			</div>
 			
 			<!-- Confirm Password Field -->
 			<div class=" form-group">
 				<span>Confirm Password</span>
-				<input type="password" class="form-control" placeholder="Confirm Password" >
+				<input type="password" class="form-control" placeholder="Confirm Password" name = "conpass">
 			</div>
 			
 			<!-- Username -->
 			<div class=" form-group">
 				<span>Username</span>
-				<input type="password" class="form-control" placeholder="Username" >
+				<input type="text" class="form-control" placeholder="Username" name = "name">
 			</div>
 			
-			<button class="btn btn-primary btn-block" type ="button" >Register</button>
-		</form>		
+			<button class="btn btn-primary btn-block" type ="submit" >Register</button>
+			</div>
+		</form>
 	</div>
 <div class="col-md-4 col-sm4 col-xs-4" ></div>
 	</div>
