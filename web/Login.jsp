@@ -46,14 +46,16 @@
 	<div class="form-container">
 		<div class="col-md-4 col-sm4 col-xs-4" ></div>
 		<div class="col-md-3 col-sm3 col-xs-3" >
+
+			<form action="LoginServlet" method="post">
 			<div class="test" >
 				<!--  Lets give him chance to register too -->
-				<button class="btn btn-primary btn-block" type ="submit" name="signup" > Sign Up</button>
+				<button class="btn btn-primary btn-block" type ="submit" name="action"  value="signup"> Sign Up</button>
 				<hr class="line1" align="right">
 				<hr class="line2" align="left">
 				<!-- added lines to devide sign and log in part from each other-->
 			</div>
-
+			</form>
 			<form action="LoginServlet" method="post"  id="loginjs">
 				<div class="marg">
 					<!--  create fields for login -->
@@ -77,7 +79,7 @@
 						</div>
 					</div><!-- password field -->
 
-					<button class="btn btn-primary btn-block" type ="submit" name="password"> Log In</button>
+					<button class="btn btn-primary btn-block" type ="submit" name="action" value="login"> Log In</button>
 					<!-- button field -->
 				</div>
 			</form>
