@@ -8,7 +8,8 @@
 }
 
 .navbar {
-	padding 1% 0;
+
+
 	background-color: #34495E;
 	color: #FFF;
 }
@@ -16,6 +17,9 @@
 	color:white;
 }
 
+.rightbox {
+	padding-right:40px;
+}
 .test {
 	padding-top:50%;
 	margin-bottom:0;
@@ -52,7 +56,6 @@
 .inf {
 	float: right;
 	clear:none;
-	border: 2px solid;
 	padding-left:10px;
 }
 
