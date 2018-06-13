@@ -260,7 +260,7 @@
                 password: {
                     validators: {
                         identical: {
-                            field: 'confirmPassword',
+                            field: 'conpass',
                             message: 'Confirm your password below - type same password please'
                         }
                     }
