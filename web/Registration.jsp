@@ -236,8 +236,6 @@
 <script src="js/bootstrap.min.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 
-
-
 <!-- My script -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -260,7 +258,7 @@
                 password: {
                     validators: {
                         identical: {
-                            field: 'confirmPassword',
+                            field: 'conpass',
                             message: 'Confirm your password below - type same password please'
                         }
                     }
