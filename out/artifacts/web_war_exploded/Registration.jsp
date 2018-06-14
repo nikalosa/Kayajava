@@ -68,8 +68,8 @@
 
 
 
-			<!-- action="RegisterServlet" method="post"  -->
-			<form  class="marg"   id="loginjs">
+			<!--  -->
+			<form  class="marg"   id="loginjs" action="RegisterServlet" method="post" >
 				<fieldset>
 
 					<!-- Form Name -->
@@ -235,8 +235,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
-
-
 
 <!-- My script -->
 <script type="text/javascript">

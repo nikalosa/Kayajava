@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
 
         if(validityMessage.equals("valid")) {
             manager.addAccount(user);
-            RequestDispatcher dispatch = request.getRequestDispatcher("Login.jsp");
+            RequestDispatcher dispatch = request.getRequestDispatcher("AfterLogIn.jsp");
             dispatch.forward(request, response);
         }else{
             RequestDispatcher dispatch = request.getRequestDispatcher("Registration.jsp");

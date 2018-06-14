@@ -68,8 +68,8 @@
 
 
 
-			<!-- action="RegisterServlet" method="post"  -->
-			<form  class="marg"   id="loginjs">
+			<!--  -->
+			<form  class="marg"   id="loginjs" action="RegisterServlet" method="post" >
 				<fieldset>
 
 					<!-- Form Name -->
