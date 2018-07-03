@@ -1,4 +1,11 @@
 $(document).ready(function() {
+    var count = 2;
+    var question = $('#question').html();
+    $( "#addQuestion" ).click(function(){
+        question = question.replace("1", count);
+        count++;
+        $('#question').append(question);
+    });
     $('#registrationjs').bootstrapValidator({
         fields: {
             //up part is taken from internet, couse i didnot know how to ovveride bootstrapvalidator. up down

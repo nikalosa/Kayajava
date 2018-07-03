@@ -1,3 +1,6 @@
+body {
+	font-family: 'Roboto', sans-serif !important;
+}
 #main{
 	height: 80%;
 	width:100%;
@@ -68,6 +71,10 @@
 	margin-top:5%;
 }
 
+.navbar {
+	border-radius: 0;
+}
+
 .form-container {
 	width:100%;
 	height:100%;
@@ -93,4 +100,72 @@
 .login_box {
     float: none;
     margin:0 auto;
+}
+
+/* After Login */
+
+.after-login {
+	margin-top:20px;
+}
+
+.recent-box h3 {
+	display: inline-block;
+	width: 100%;
+	background: #1b6d85;
+	color: #fff;
+	padding: 10px 5px;
+	margin:0;
+}
+
+.recent-box h3 a {
+	color:#67b168;
+}
+
+.recent-box h3 a:hover {
+	color:#3c763d;
+}
+
+.recent-quiz {
+	margin:10px 0;
+	border:1px solid #ccc;
+}
+
+.recent-quiz .col-sm-4 {
+	padding-left:0;
+	padding-right:0;
+}
+
+.trending-box {
+	padding:0;
+}
+
+.trending-box .trending-container {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height: auto;
+	border:1px solid #ccc;
+	padding:5px 10px;
+	display: block;
+}
+
+.trending-box .trending-container a {
+	padding:10px 5px;
+	border-bottom: 1px solid #1b6d85;
+	width: 100%;
+	color: #000;
+	display:inherit;
+}
+
+.trending-box .trending-container a i {
+	color: #ac2925;
+}
+
+.trending-box h3 {
+	background: #1b6d85;
+	color: #fff;
+	padding: 10px 5px;
+	margin:0;
+	margin-bottom: 10px;
 }

@@ -12,7 +12,7 @@
         <div class="col-md-2 col-lg-2 col-xl-2">
             <h2 style="color:white;">Information</h2>
             <hr>
-            <p>  <a href="MainPage.jsp" style="color:white;">Home </a></p>
+            <p>  <a href="index.jsp" style="color:white;">Home </a></p>
             <p>  <a href="#!" style="color:white;">About us</a>  </p>
             <p>  <a href="#!" style="color:white;">Name</a>  </p>
         </div>
