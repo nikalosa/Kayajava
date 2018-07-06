@@ -33,7 +33,7 @@
 
 
 			<!--  -->
-			<form  class="marg"   id="registrationjs" action="RegisterServlet" method="post" >
+			<form  class="marg"   id="registrationjs" action="RegisterServlet" method="POST" >
 				<fieldset>
 
 					<!-- Form Name -->
