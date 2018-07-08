@@ -17,4 +17,17 @@ public class StatementManager {
         }
     }
 
+    public void insertUser(String username, String firstName, String secondName, String mail){
+        String insertCommand = "insert into "+DBinfo.USER_TABLE+" values(";
+        insertCommand += username+", ";
+        insertCommand += firstName+", ";
+        insertCommand += secondName+", ";
+        insertCommand += username+")";
+        try {
+            state.execute(insertCommand);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
