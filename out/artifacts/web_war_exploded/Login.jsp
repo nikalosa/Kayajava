@@ -21,6 +21,15 @@
 			</div>
 			</form>
 			<form action="LoginServlet" method="post"  id="loginjs">
+					<%
+					boolean isSet = (request.getAttribute("error") == null);
+					if(!isSet) { %>
+						<div class="alert alert-danger" role="alert">
+							<%= request.getAttribute("error")%> is not valid.
+						</div>
+					<%
+						}
+					%>
 				<div class="marg">
 					<!--  create fields for login -->
 					<div class=" form-group">

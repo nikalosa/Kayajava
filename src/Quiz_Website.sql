@@ -3,8 +3,7 @@ USE Quiz_Website;
 create table User_Table(
     userName varchar(50),
     primary key(username),
-    firstName varchar(50),
-    lastName varchar(50),
+    password varchar(50),
     mail varchar(50)
 );
 
