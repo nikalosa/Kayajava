@@ -1,12 +1,10 @@
+<%@ page import="java.util.ArrayList" %>
 <jsp:include page="header.jsp">
 	<jsp:param name="title" value="Registration"/>
 </jsp:include>
 
 <!-- This is to create opening till center point -->
 <div class="bg"> </div>
-
-
-
 
 <!-- Right Box -->
 <div class="container-fluid" >
@@ -18,8 +16,6 @@
 
 
 		<!--  -->
-
-
 
 		<!--  Lets add the part where they will be able to log in while registering -->
 
@@ -33,12 +29,22 @@
 
 
 			<!--  -->
-			<form  class="marg"   id="registrationjs" action="RegisterServlet" method="post" >
+			<form  class="marg"   id="registrationjs" action="RegisterServlet" method="POST" >
 				<fieldset>
 
 					<!-- Form Name -->
 					<legend> Account Information </legend>
 
+					<%		for(int i=0;i<7;i++) {
+						   	boolean isSet = (request.getAttribute("pass"+i) == null);
+						   	if(!isSet) { %>
+								<div class="alert alert-danger" role="alert">
+									<%= request.getAttribute("pass"+i)%> is not valid.
+								</div>
+						   <%
+						   	}
+						}
+					%>
 
 					<!-- Mail field -->
 					<div class=" form-group">
@@ -83,7 +89,7 @@
 						<div class="input-group">
 							<!-- group addon class controls to stick icon and field togheter. learned from bootstrap components page. -->
 							<span class="input-group-addon"><strong class="glyphicon glyphicon-user"></strong> </span>
-							<input type="password" class="form-control" placeholder="Username"  name="name">
+							<input type="text" class="form-control" placeholder="Username"  name="name">
 						</div>
 					</div>
 

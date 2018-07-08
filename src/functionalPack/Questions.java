@@ -36,7 +36,6 @@ public class Questions {
     }
 
     private class FillInTheBlank implements QuestionInterface {
-
         private String Question;
         private int maxScore;
         private String correctAnswer;
@@ -112,6 +111,7 @@ public class Questions {
 
         @Override
         public int checkAnswer(String answer) {
+
             return ((correctAnswer.equals(answer))?1:0);
         }
 

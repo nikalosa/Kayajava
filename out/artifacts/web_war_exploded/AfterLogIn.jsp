@@ -4,7 +4,6 @@
 </jsp:include>
 <!-- Finish -->
 
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -18,25 +17,25 @@
 		<div class="item active">
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 		</div>

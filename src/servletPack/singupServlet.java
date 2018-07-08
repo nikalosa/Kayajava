@@ -16,7 +16,6 @@ public class singupServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatch = request.getRequestDispatcher("Registration.jsp");
-        dispatch.forward(request,response);
+
     }
 }
