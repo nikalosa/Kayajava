@@ -1,5 +1,5 @@
 <jsp:include page="header.jsp">
-	<jsp:param name="title" value="User Page"/>
+	<jsp:param name="title" value="Home"/>
 	<jsp:param name="login" value="logged"/>
 </jsp:include>
 <!-- Finish -->

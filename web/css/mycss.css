@@ -52,6 +52,18 @@ body {
 .carousel-inner .item .thumbnail {
 	margin-bottom:0;
 }
+
+/* Profile */
+.achievements-bar {
+	border:1px solid #ccc;
+}
+
+.achievements h4 {
+	margin-bottom: 0;
+}
+
+/* Profile End*/
+
 .rowImage{
   float: left;
   width: 33.33%;

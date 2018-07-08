@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
     var pointer;
     var count1 = 2;
     var count2 = 2;
