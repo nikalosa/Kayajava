@@ -4,17 +4,16 @@
 
 <!-- lets make slide with sign up button using bootstrap css -->
 
-<form action="singupServlet" method="POST" >
-	<div class="carousel-inner" role="listbox">
-			<div class="item active">
-			<img src= "store-images/shell.jpg" id="main">
-				<div class="carousel-caption d-none d-md-block">
-					<h1>Check your general knowledge</h1>
-					<button class = "btn btn-lg btn-primary" type ="submit" > Sign Up</button>
-				</div>
-			</div>
-	</div>
-</form>
+<div class="carousel-inner" role="listbox">
+        <div class="item active">
+        <img src= "store-images/shell.jpg" id="main">
+          <div class="carousel-caption d-none d-md-block">
+        
+        <h1>Check your general knowledge</h1>
+        	<a class = "btn btn-lg btn-primary" > Sign Up</a>
+        </div>
+        </div>        
+</div>
 
 <div class="container marketing">
 	<div class= "row"> 

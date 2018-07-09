@@ -1,7 +1,7 @@
 package functionalPack;
 
 
-import javafx.util.Pair;
+//import javafx.util.Pair;
 
 import java.security.MessageDigest;
 
@@ -101,9 +101,9 @@ public class User {
         }
 //      ///////////mail
 
-        if(mail ==null || mail.isEmpty()|| !VALID_EMAIL_ADDRESS_REGEX.matcher(mail).matches()) {
-            arr.add("No small letters in your password, use them for your safety");
-        }
+//        if(mail ==null || mail.isEmpty()|| !VALID_EMAIL_ADDRESS_REGEX.matcher(mail).matches()) {
+//            arr.add("No small letters in your password, use them for your safety");
+//        }
 
 
         ///confirm pass.
@@ -118,9 +118,13 @@ public class User {
         return arr;
     }
 
+    public String getPassword() {
+        return "";
+    }
+
 
     ///inner class of Achievements.
-    private class Achievements {
+   /* private class Achievements {
         HashMap<String, Pair<String, Boolean> > map;
         String [] arr = {"Amateur Author","Prolific Author","Prodigious Author",
                 "Quiz Machine","I am the Greatest","Practice Makes Perfect"};
@@ -162,7 +166,7 @@ public class User {
 
 
     }
-
+*/
 
 
 

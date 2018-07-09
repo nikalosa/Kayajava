@@ -3,14 +3,8 @@
 	<jsp:param name="login" value="logged"/>
 </jsp:include>
 <!-- Finish -->
-
+<%@ page import="functionalPack.User" %>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner">
@@ -43,25 +37,25 @@
 		<div class="item">
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 		</div>
@@ -69,25 +63,25 @@
 		<div class="item">
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 
 			<div class="col-xs-5 col-md-3">
 				<a href="#" class="thumbnail">
-					<img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="...">
+					<img src="/store-images/back.jpg" alt="...">
 				</a>
 			</div>
 		</div>
@@ -147,6 +141,15 @@
 				<a href="#"><i class="glyphicon glyphicon-fire"></i> Trending 3</a>
 				<a href="#"><i class="glyphicon glyphicon-fire"></i> Trending 4</a>
 				<a href="#"><i class="glyphicon glyphicon-fire"></i> Trending 5</a>
+			</div>
+			<br/><br/>
+			<h3>Recently Taken Quizies</h3>
+			<div class="trending-container">
+				<a href="#"><i class="glyphicon glyphicon-chevron-right"></i> Recent 1</a>
+				<a href="#"><i class="glyphicon glyphicon-chevron-right"></i> Recent 2</a>
+				<a href="#"><i class="glyphicon glyphicon-chevron-right"></i> Recent 3</a>
+				<a href="#"><i class="glyphicon glyphicon-chevron-right"></i> Recent 4</a>
+				<a href="#"><i class="glyphicon glyphicon-chevron-right"></i> Recent 5</a>
 			</div>
 		</div>
 	</div>
