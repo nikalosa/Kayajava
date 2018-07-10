@@ -12,7 +12,7 @@ public class AccountManager {
     }
 
     public boolean checkAccount(String userName, String password){
-        Connection con = makeConnection();
+        Connection con = getConnection();
         StatementManager st = new StatementManager(con);
         ResultSet set = st.takeUser(userName,password);
         try {
@@ -31,25 +31,27 @@ public class AccountManager {
 //    }
 
     public void addAccount(User user) {
-        Connection con = makeConnection();
+        Connection con = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            con = getConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         StatementManager st = new StatementManager(con);
         st.insertUser(user.getUserName(),user.getPassword(),user.getMail());
     }
 
-    public static Connection makeConnection () {
+    public static Connection getConnection() {
+        Connection connection = null;
+
         try {
-            Statement st;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://" + DBinfo.DATABASE_SERVER + "?useSSL=false" ,DBinfo.USERNAME
-                    ,DBinfo.PASSWORD);
-            st = con.createStatement();
-            st.executeQuery("USE " + DBinfo.DATABASE_NAME);
-            return con;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/easybase", "root", "");
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+
+        return connection;
     }
 }
