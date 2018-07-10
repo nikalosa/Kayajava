@@ -8,4 +8,5 @@ public class DBinfo {
     public static final String QUIZ_TABLE = "Quiz";
     public static final String QUESTION_TABLE = "Question";
     public static final String USER_TABLE = "User_Table";
+    public static final String FRIENDS_TABLE = "Friend";
 }

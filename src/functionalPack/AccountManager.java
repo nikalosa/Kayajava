@@ -14,15 +14,8 @@ public class AccountManager {
     public boolean checkAccount(String userName, String password){
         Connection con = getConnection();
         StatementManager st = new StatementManager(con);
-        ResultSet set = st.takeUser(userName,password);
-        try {
-            if(set.next()) {
-                return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
+        boolean exists = st.userExists(userName,password);
+        return exists;
     }
 
 
