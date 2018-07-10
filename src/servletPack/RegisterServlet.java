@@ -28,6 +28,7 @@ public class RegisterServlet extends HttpServlet {
         if(arr.size()==0) {
             manager.addAccount(user);
             RequestDispatcher dispatch = request.getRequestDispatcher("AfterLogIn.jsp");
+            request.getSession().setAttribute("userName",user.getUserName());
             dispatch.forward(request, response);
         }else {
             for(int i =0; i <arr.size();i++) {

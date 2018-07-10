@@ -3,7 +3,7 @@
 	<jsp:param name="login" value="logged"/>
 </jsp:include>
 <!-- Finish -->
-
+<%@ page import="functionalPack.User" %>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
 	<!-- Wrapper for slides -->

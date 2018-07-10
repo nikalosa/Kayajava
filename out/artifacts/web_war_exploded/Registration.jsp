@@ -31,7 +31,6 @@
 			<!--  -->
 			<form  class="marg"   id="registrationjs" action="RegisterServlet" method="POST" >
 				<fieldset>
-
 					<!-- Form Name -->
 					<legend> Account Information </legend>
 

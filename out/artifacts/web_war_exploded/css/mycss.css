@@ -49,7 +49,9 @@ body {
 	background-color: #34495E;	
 }
 
-
+.carousel-inner .item .thumbnail {
+	margin-bottom:0;
+}
 .rowImage{
   float: left;
   width: 33.33%;

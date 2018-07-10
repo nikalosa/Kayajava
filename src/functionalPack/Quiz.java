@@ -4,28 +4,39 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Quiz {
-    private String name;
-    private int ID;
-    private int numQuestions;
+    private String title;
+    private boolean shuffle;
     ArrayList<Questions> questions;
 
-    public Quiz(String name, Statement state){
-        this.name = name;
-        numQuestions = 0;
+    public Quiz(String title, Statement state, boolean shuffle){
+        this.title = title;
+        this.shuffle = shuffle;
+        questions = new ArrayList<Questions>();
         try {
-            ResultSet quizSet = state.executeQuery("select * from "+DBinfo.QUIZ_TABLE+"where title="+name);
-            quizSet.next();
-            ID = quizSet.getInt(1);
-            ResultSet questionsSet = state.executeQuery("select ID from "+DBinfo.QUESTION_TABLE+"where quizID="+ID);
+            state.executeQuery("USE " + DBinfo.DATABASE_NAME);
+            //System.out.println("select * from "+DBinfo.QUESTION_TABLE+" where quizTitle="+"\'"+title+"\'");
+            ResultSet questionsSet = state.executeQuery("select * from "+DBinfo.QUESTION_TABLE+" where quizTitle="+"\'"+title+"\'");
+            System.out.println("asdasdad");
             while(questionsSet.next()){
-                numQuestions++;
-                //questions.add(new Questions(questionsSet.getInt(1), state));
+                String questionType = questionsSet.getString(3);
+                String question = questionsSet.getString(4);
+                String correctAnswer = questionsSet.getString(5);
+                System.out.println(questionType+" "+question+" "+correctAnswer);
+                questions.add(new Questions(questionType,question,correctAnswer));
             }
+            if(shuffle)
+                Collections.shuffle(questions);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public Questions takeQuestion(int index){
+        return questions.get(index);
     }
 
 }

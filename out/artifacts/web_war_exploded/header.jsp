@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>${param.title} - ${param.login}</title>
+    <title>${param.title}</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel = "stylesheet" type="text/css" href = "css/bootstrap.min.css">
     <link rel = "stylesheet" type="text/css" href = "css/mycss.css">
@@ -22,7 +22,6 @@
                 <%
                     if(request.getParameter("login") != null){ %>
                 <li> <a href="AfterLogIn.jsp"> Home</a> </li>
-                <li> <a href="Profile.jsp">Profile</a> </li>
                 <li> <a href="Quizzies.jsp">Quizzies</a> </li>
                 <li> <a href="logout.jsp">Log Out</a> </li>
                 <%  } else { %>

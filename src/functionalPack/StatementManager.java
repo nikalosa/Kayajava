@@ -1,9 +1,6 @@
 package functionalPack;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class StatementManager {
     Statement state;
@@ -17,12 +14,23 @@ public class StatementManager {
         }
     }
 
-    public void insertUser(String username, String firstName, String secondName, String mail){
+
+    public ResultSet takeUser(String userName,String password) {
+        ResultSet set = null;
+        String str = "select* from User_Table where userName=\"" +userName+"\" and password=\""+password+"\";";
+        try {
+            set = state.executeQuery(str);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return set;
+    }
+
+    public void insertUser(String username, String password, String mail){
         String insertCommand = "insert into "+DBinfo.USER_TABLE+" values(";
         insertCommand += username+", ";
-        insertCommand += firstName+", ";
-        insertCommand += secondName+", ";
-        insertCommand += username+")";
+        insertCommand += password+", ";
+        insertCommand += mail+")";
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {

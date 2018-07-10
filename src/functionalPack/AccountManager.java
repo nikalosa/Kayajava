@@ -1,24 +1,28 @@
 package functionalPack;
 
+import javax.xml.transform.Result;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class AccountManager {
 
-    private HashMap<String, User> userMap;
-
     public AccountManager(){
-        userMap = new HashMap<String, User>();
     }
 
     public boolean checkAccount(String userName, String password){
-        User user = userMap.get(userName);
-
-        if(user == null) {
-            return false;
+        Connection con = makeConnection();
+        StatementManager st = new StatementManager(con);
+        ResultSet set = st.takeUser(userName,password);
+        try {
+            if(set.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return user.checkPassword(password);
+        return false;
     }
 
 
@@ -27,7 +31,25 @@ public class AccountManager {
 //    }
 
     public void addAccount(User user) {
-        userMap.put(user.getUserName(),user);
-        userMap.put(user.getMail(),user);
+        Connection con = makeConnection();
+        StatementManager st = new StatementManager(con);
+        st.insertUser(user.getUserName(),user.getPassword(),user.getMail());
+    }
+
+    public static Connection makeConnection () {
+        try {
+            Statement st;
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://" + DBinfo.DATABASE_SERVER + "?useSSL=false" ,DBinfo.USERNAME
+                    ,DBinfo.PASSWORD);
+            st = con.createStatement();
+            st.executeQuery("USE " + DBinfo.DATABASE_NAME);
+            return con;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
