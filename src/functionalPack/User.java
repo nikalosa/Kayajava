@@ -3,6 +3,8 @@ package functionalPack;
 
 //import javafx.util.Pair;
 
+import javafx.util.Pair;
+
 import java.security.MessageDigest;
 
 import java.security.NoSuchAlgorithmException;
@@ -68,6 +70,7 @@ public class User {
     public String getMail(){
         return mail;
     }
+    public String getPassword() {return password; }
 
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
@@ -78,7 +81,7 @@ public class User {
         if(password.length()<8){
             arr.add("Too short password");
         }
-        boolean numb=false, bigLetters=true, smallLetters=false;
+        boolean numb=false, bigLetters=false, smallLetters=false;
         for(int i=0;i<password.length();i++){
             char ch = password.charAt(i);
             if(ch>='a' && ch<='z'){
@@ -101,9 +104,9 @@ public class User {
         }
 //      ///////////mail
 
-//        if(mail ==null || mail.isEmpty()|| !VALID_EMAIL_ADDRESS_REGEX.matcher(mail).matches()) {
-//            arr.add("No small letters in your password, use them for your safety");
-//        }
+        if(mail ==null || mail.isEmpty()|| !VALID_EMAIL_ADDRESS_REGEX.matcher(mail).matches()) {
+            arr.add("No small letters in your password, use them for your safety");
+        }
 
 
         ///confirm pass.
@@ -118,14 +121,11 @@ public class User {
         return arr;
     }
 
-    public String getPassword() {
-        return "";
-    }
 
 
     ///inner class of Achievements.
-   /* private class Achievements {
-        HashMap<String, Pair<String, Boolean> > map;
+    private class Achievements {
+        HashMap<String, Pair<String, Boolean>> map;
         String [] arr = {"Amateur Author","Prolific Author","Prodigious Author",
                 "Quiz Machine","I am the Greatest","Practice Makes Perfect"};
         String [] arrDisc = {"The user created a quiz.","The user created five quizzes.",
@@ -166,7 +166,6 @@ public class User {
 
 
     }
-*/
 
 
 

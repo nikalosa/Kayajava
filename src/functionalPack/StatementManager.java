@@ -28,9 +28,10 @@ public class StatementManager {
         }
     }
 
-    public boolean userExists(String username, String password){
-        String selectCommand = "select * from "+DBinfo.USER_TABLE+" where userName='"+username+"' and password='"+password+'\'';
+    public boolean userExists(String password,String mail){
+        String selectCommand = "select * from "+DBinfo.USER_TABLE+" where mail='"+mail+"' and password='"+password+'\'';
         try {
+            System.out.println(selectCommand);
             ResultSet set = state.executeQuery(selectCommand);
             if(set.next()) return true;
         } catch (SQLException e) {
