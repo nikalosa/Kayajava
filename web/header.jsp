@@ -21,8 +21,9 @@
             <ul class="nav navbar-nav navbar right navig">
                 <%
                     if(request.getParameter("login") != null){ %>
-                <li> <a href="AfterLogIn.jsp"> Home</a> </li>
+                <li> <a href="AfterLogIn.jsp">Home</a> </li>
                 <li> <a href="Quizzies.jsp">Quizzies</a> </li>
+                <li> <a href="Profile.jsp">Profile</a> </li>
                 <li> <a href="logout.jsp">Log Out</a> </li>
                 <%  } else { %>
 
