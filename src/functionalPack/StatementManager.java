@@ -28,9 +28,10 @@ public class StatementManager {
         }
     }
 
-    public boolean userExists(String username, String password){
-        String selectCommand = "select * from "+DBinfo.USER_TABLE+" where userName='"+username+"' and password='"+password+'\'';
+    public boolean userExists(String password,String mail){
+        String selectCommand = "select * from "+DBinfo.USER_TABLE+" where mail='"+mail+"' and password='"+password+'\'';
         try {
+            System.out.println(selectCommand);
             ResultSet set = state.executeQuery(selectCommand);
             if(set.next()) return true;
         } catch (SQLException e) {
@@ -39,11 +40,11 @@ public class StatementManager {
         return false;
     }
 
-    public void addFriend(String firstUser, String secondUser){
+    public void addFriend(String firstMail , String secondMail){
         String insertCommand = "insert into "+DBinfo.FRIENDS_TABLE+" values(";
-        insertCommand += '\''+firstUser+"', '"+secondUser+"')";
+        insertCommand += '\''+firstMail+"', '"+secondMail+"')";
         String secondInsert = "insert into "+DBinfo.FRIENDS_TABLE+" values(";
-        secondInsert += '\''+secondUser+"', '"+firstUser+"')";
+        secondInsert += '\''+secondMail+"', '"+firstMail+"')";
         try {
             state.execute(insertCommand);
             state.execute(secondInsert);
@@ -52,11 +53,11 @@ public class StatementManager {
         }
     }
 
-    public void insertQuiz(String title, String description, String creator){
+    public void insertQuiz(String title, String description, String creatorMail){
         String insertCommand = "insert into "+DBinfo.QUIZ_TABLE+" value(";
         insertCommand += "'"+title+",' '";
         insertCommand += description+"', '";
-        insertCommand += creator+"', 0, 0)";
+        insertCommand += creatorMail+"', 0, 0)";
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
@@ -75,6 +76,44 @@ public class StatementManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public ResultSet getQuiz(String quizTitle){
+        String selectCommand = "select * from "+DBinfo.QUIZ_TABLE+" where quizTitle="+"\'"+quizTitle+"\'";
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getQuestions(String quizTitle, boolean rand){
+        String selectCommand = "select * from "+DBinfo.QUESTION_TABLE+" where quizTitle="+"\'"+quizTitle+"\'";
+        if(rand) {
+            selectCommand += "order by rand()";
+        }else{
+            selectCommand += "order by ID";
+        }
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getAnswers(int ID){
+        String selectCommand = "select * from "+DBinfo.ANSWER_TABLE+" where questionID='"+ID+"'";
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void main(String[] args) {

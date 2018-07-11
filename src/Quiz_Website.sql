@@ -2,25 +2,26 @@ USE Quiz_Website;
 
 create table User_Table(
     userName varchar(50),
-    primary key(username),
     password varchar(50),
-    mail varchar(50)
+    mail varchar(50),
+    primary key(mail)
 );
 
 create table Friends(
-	firstUser varchar(50),
-    secondUser varchar(50),
-    foreign key (firstUser) references User_Table(userName),
-    foreign key (SecondUser) references User_Table(userName)
+	firstMail varchar(50),
+    secondMail varchar(50),
+    foreign key (firstMail) references User_Table(mail),
+    foreign key (SecondMail) references User_Table(mail)
 );
 
 create table Quiz (
     title varchar(100),
-    creator varchar(100),
+    description varchar(1000),
+    creatorMail varchar(100),
     primary key(title),
     numPlayed int,
     sumOfPoints int,
-    foreign key (creator)  references User_Table(userName)
+    foreign key (creatorMail)  references User_Table(mail)
 );
 
 create table Question (
@@ -42,11 +43,17 @@ create table Answer (
 );
 
 create table DoneQuizzes(
-	player varchar(50),
+	playerMail varchar(50),
     quizTitle varchar(100) not null,
     result int not null,
     usedTime time,
     startTime datetime,
-    foreign key (player) references User_Table(userName),
+    foreign key (playerMail) references User_Table(mail),
     foreign key (quizTitle) references Quiz(title)
+);
+
+create table History(
+	userMail varchar(50),
+    activity varchar(500),
+    actTime datetime
 );

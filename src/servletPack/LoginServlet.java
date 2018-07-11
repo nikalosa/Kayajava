@@ -20,11 +20,12 @@ public class LoginServlet extends HttpServlet {
         if ("signup".equals(action)) {
             RequestDispatcher dispatch = request.getRequestDispatcher("Registration.jsp");
             dispatch.forward(request,response);
+
         } else if ("login".equals(action)) {
             String name = request.getParameter("my_email");
             String pass = request.getParameter("my_password");
             if(manager.checkAccount(name,pass)) {
-                RequestDispatcher dispatch = request.getRequestDispatcher("MainPage.jsp");
+                RequestDispatcher dispatch = request.getRequestDispatcher("AfterLogin.jsp");
                 dispatch.forward(request,response);
             }else {
                 request.setAttribute("error","Wrong username or password.");

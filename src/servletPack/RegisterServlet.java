@@ -18,7 +18,7 @@ public class RegisterServlet extends HttpServlet {
         AccountManager manager = (AccountManager)getServletContext().getAttribute("manager");
 
         String name = request.getParameter("name");
-        String mail = request.getParameter("mail");
+        String mail = request.getParameter("email");
         String pass = request.getParameter("password");
         String conPass = request.getParameter("conpass");
         User user = new User(mail,pass,name,conPass);

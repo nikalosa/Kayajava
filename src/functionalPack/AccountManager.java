@@ -11,21 +11,15 @@ public class AccountManager {
     public AccountManager(){
     }
 
-    public boolean checkAccount(String userName, String password){
+    public boolean checkAccount(String mail,String password){
         Connection con = getConnection();
         StatementManager st = new StatementManager(con);
-        boolean exists = st.userExists(userName,password);
+        boolean exists = st.userExists(password,mail);
         return exists;
     }
 
-
-//    public boolean inUse(String userName, String mail){
-//        return (userMap.containsKey(userName) || userMap.contains(mail));
-//    }
-
     public void addAccount(User user) {
         Connection con = null;
-        PreparedStatement preparedStatement = null;
         try {
             con = getConnection();
         } catch (Exception e) {
@@ -40,7 +34,8 @@ public class AccountManager {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/easybase", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://" + DBinfo.DATABASE_SERVER + DBinfo.DATABASE_NAME, DBinfo.USERNAME,
+                    DBinfo.PASSWORD);
         } catch (Exception e) {
             e.printStackTrace();
         }
