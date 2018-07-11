@@ -67,7 +67,7 @@ public class StatementManager {
     }
 
     public int insertQuestion(String quiz, String type, String question, String correctAnswer, String picture){
-        String insertCommand = "insert into "+DBinfo.QUESTION_TABLE+"(quizTitle, questionType, question, correct)";
+        String insertCommand = "insert into "+DBinfo.QUESTION_TABLE+"(quizTitle, questionType, question, correct,picture)";
         insertCommand += " value('"+quiz+"' ,'";
         insertCommand += type+"', '";
         insertCommand += question+"', '";
@@ -83,6 +83,7 @@ public class StatementManager {
                 return set.getInt(1);
             }
         } catch (SQLException e) {
+            System.out.println(insertCommand);
             e.printStackTrace();
         }
         return 0;
@@ -95,6 +96,7 @@ public class StatementManager {
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
+            System.out.println(insertCommand);
             e.printStackTrace();
         }
     }
@@ -116,7 +118,6 @@ public class StatementManager {
             selectCommand += " order by rand()";
         }else{
             selectCommand += " order by ID ";
-=======
             selectCommand += " order by ID";
         }
         try {

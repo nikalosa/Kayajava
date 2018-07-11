@@ -107,15 +107,15 @@
                             <div id="image">
                                 <div class="form-group">
                                     <label for="image-question-1">Image question 1</label>
-                                    <input type="text" class="form-control" id="image-question-1">
+                                    <input type="text" class="form-control" id="image-question-1" name="image-question-1">
                                 </div>
                                 <div class="form-group">
-                                    <label for="image-question-1">Image link 1</label>
-                                    <input type="text" class="form-control" id="image-link-1">
+                                    <label for="image-link-1">Image link 1</label>
+                                    <input type="text" class="form-control" id="image-link-1" name = "image-link-1">
                                 </div>
                                 <div class="form-group">
-                                    <label for="image-question-1">Image Answer 1</label>
-                                    <input type="text" class="form-control" id="image-answer-1">
+                                    <label for="image-answer-1">Image Answer 1</label>
+                                    <input type="text" class="form-control" id="image-answer-1" name = "image-answer-1">
                                 </div>
                             </div>
                         </div>

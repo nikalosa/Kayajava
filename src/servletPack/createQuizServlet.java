@@ -32,7 +32,6 @@ public class createQuizServlet extends HttpServlet {
         StatementManager st = new StatementManager(con);
 
         st.insertQuiz(title,description,(String)request.getSession().getAttribute("email"));
-        System.out.println((String)request.getSession().getAttribute("email"));
 
         if(quizType.equals("Question-Response")) {
             int index = 1;
@@ -41,7 +40,7 @@ public class createQuizServlet extends HttpServlet {
                 String answer = request.getParameter("quiz-" +index+"-answer-1");
                 if(question == null || answer == null) break;
                 index++;
-                st.insertQuestion(title,quizType,question,answer);
+                st.insertQuestion(title,quizType,question,answer,"");
             }
         }else if(quizType.equals("Fill in the Blank")) {
             int index = 1;
@@ -51,7 +50,7 @@ public class createQuizServlet extends HttpServlet {
                 String after_blank = request.getParameter("after-blank-" + index);
                 if(before_blank == null || blank == null || after_blank == null) break;
                 index++;
-                st.insertQuestion(title,quizType,before_blank+"--------" + after_blank,blank);
+                st.insertQuestion(title,quizType,before_blank+"--------" + after_blank,blank,"");
             }
         }else if(quizType.equals("Multiple Choice")) {
             int index = 1;
@@ -59,13 +58,13 @@ public class createQuizServlet extends HttpServlet {
                 String question = request.getParameter("quiz-multiple-" + index);
                 int answerindex = 1;
                 if(question == null) break;
+                int id =0;
                 while(true) {
                     String answer = request.getParameter("quiz-multiple-answer-"+index+"-" +answerindex);
                     if(answer == null) break;
-                    int id=0;
                     if(answerindex == 1) {
-                        id = st.insertQuestion(title,quizType,question,answer);
-                        st.insertAnswer(id,answer);
+                        id = st.insertQuestion(title, quizType, question, answer, "");
+                        st.insertAnswer(id, answer);
                     }else {
                         st.insertAnswer(id,answer);
                     }
@@ -79,8 +78,11 @@ public class createQuizServlet extends HttpServlet {
                 String imgQuestion = request.getParameter("image-question-" + index);
                 String imgLink = request.getParameter("image-link-"+index);
                 String imgAnswer = request.getParameter("image-answer-"+index);
+                System.out.println("yle");
                 if(imgQuestion==null || imgLink==null||imgAnswer==null) break;
-                st.insertQuestion(title,quizType,imgQuestion + "#" + imgLink,imgAnswer);
+                System.out.println("aaraa");
+                st.insertQuestion(title,quizType,imgQuestion ,imgAnswer,imgLink);
+                index++;
             }
         }
 
