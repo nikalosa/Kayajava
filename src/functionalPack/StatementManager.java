@@ -65,12 +65,29 @@ public class StatementManager {
         }
     }
 
-    public void insertQuestion(String quiz, String type, String question, String correctAnswer){
+    public int insertQuestion(String quiz, String type, String question, String correctAnswer){
         String insertCommand = "insert into "+DBinfo.QUESTION_TABLE+"(quizTitle, questionType, question, correct)";
         insertCommand += " value("+"'"+quiz+"', '";
         insertCommand += type+"', '";
         insertCommand += question+"', '";
         insertCommand += correctAnswer+"')";
+        try {
+            state.execute(insertCommand);
+            String selectCommand = "select ID from "+DBinfo.QUESTION_TABLE+" where ";
+            selectCommand += "quizTitle='"+quiz+"' and ";
+            selectCommand += "question='"+question+"' order by ID desc";
+            ResultSet set = state.executeQuery(selectCommand);
+            return set.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public void insertAnswer(int ID, String answer){
+        String insertCommand = "insert into "+DBinfo.ANSWER_TABLE+"(questionID, answer)";
+        insertCommand += " value("+"'"+ID+"', '";
+        insertCommand += answer+"')";
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
@@ -116,6 +133,38 @@ public class StatementManager {
         return null;
     }
 
+    public void deleteQuiz(String quizTitle){
+        deleteQuestions(quizTitle);
+        String deleteCommand = "delete from "+DBinfo.QUIZ_TABLE+" where quizTitle='"+quizTitle+"'";
+        try {
+            state.execute(deleteCommand);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteQuestions(String quizTitle){
+        try {
+            ResultSet answers = state.executeQuery("select * from "+DBinfo.QUESTION_TABLE+" where quizTitle='"+quizTitle+"'");
+            while(answers.next()){
+                int ID = answers.getInt(1);
+                deleteAnswers(ID);
+            }
+            String deleteCommand = "delete from "+DBinfo.QUESTION_TABLE+" where quizTitle='"+quizTitle+"'";
+            state.execute(deleteCommand);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void deleteAnswers(int ID){
+        String deleteCommand = "delete from "+DBinfo.ANSWER_TABLE+" where questionID='"+ID+"'";
+        try {
+            state.execute(deleteCommand);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     public static void main(String[] args) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
