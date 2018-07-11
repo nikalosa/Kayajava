@@ -11,11 +11,7 @@
 	<div class="row  ">
 
 	<div class="form-container">
-
-
-
-
-		<!--  -->
+<!--  -->
 
 		<!--  Lets add the part where they will be able to log in while registering -->
 

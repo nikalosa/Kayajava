@@ -26,37 +26,6 @@ public class User {
     }
 
 
-    public static String hexToString(byte[] bytes) {
-        StringBuffer buff = new StringBuffer();
-        for (int i=0; i<bytes.length; i++) {
-            int val = bytes[i];
-            val = val & 0xff;  // remove higher bits, sign
-            if (val<16) buff.append('0'); // leading 0
-            buff.append(Integer.toString(val, 16));
-        }
-        return buff.toString();
-    }
-    private static void makeDigest() {
-        try {
-            messageDigest = MessageDigest.getInstance("SHA");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    // this method takes string and using messageDigest generates hash code and  returns it as string
-    private static String makeHashCode(String str) {
-        makeDigest();
-        String s = "";
-        byte[] arr = str.getBytes();
-        arr = messageDigest.digest(arr);
-        s = hexToString(arr);
-        return s;
-    }
-
-
-
     public String getUserName(){
         return userName;
     }

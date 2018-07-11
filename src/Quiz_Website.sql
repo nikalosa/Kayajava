@@ -30,6 +30,7 @@ create table Question (
     questionType varchar(100),
     question varchar(400),
     correct varchar(100) not null,
+    picture varchar(100),
     primary key(ID),
     foreign key (quizTitle) references Quiz(title)
 );
