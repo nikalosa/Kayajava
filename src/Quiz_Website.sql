@@ -27,7 +27,7 @@ create table Quiz (
 create table Question (
 	ID int not null auto_increment,
     quizTitle varchar(100),
-    questionType char(100),
+    questionType varchar(100),
     question varchar(400),
     correct varchar(100) not null,
     primary key(ID),
