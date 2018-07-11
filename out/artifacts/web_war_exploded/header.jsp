@@ -13,7 +13,7 @@
         <div class="navbar-header">
             <img alt="WebLogo" src="store-images/logo.png">
         </div>
-        <a class="navbar-brand" style="color:white;" href="index.jsp">KayaJava</a>
+        <a class="navbar-brand" style="color:white;" href="index.jsp"> KayaJava</a>
 
         <!-- lets add some information -->
         <div class="collapse navbar-collapse" id="myCollapseClass">
@@ -21,24 +21,19 @@
             <ul class="nav navbar-nav navbar right navig">
                 <%
                     if(request.getParameter("login") != null){ %>
-                <li> <a href="AfterLogIn.jsp"> Home</a> </li>
-                <li> <a href="Quizzies.jsp">Quizzies</a> </li>
+                <li> <a href="AfterLogIn.jsp">Home</a> </li>
+                <li> <a href="Quizzies.jsp">Quizzes</a> </li>
+                <li> <a href="Profile.jsp">Profile</a> </li>
                 <li> <a href="logout.jsp">Log Out</a> </li>
                 <%  } else { %>
 
-                <li> <a href="index.jsp"> Home</a> </li>
-                <li> <a href="Login.jsp"> Log In</a> </li>
-                <li> <a href="Registration.jsp"> Register</a> </li>
+                <li> <a href="index.jsp">Home</a> </li>
+                <li> <a href="Quizzies.jsp">Quizzes</a> </li>
+                <li> <a href="Login.jsp">Log In</a> </li>
+                <li> <a href="Registration.jsp">Register</a> </li>
 
                 <% } %>
             </ul>
-
-            <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-            </form>
         </div>
 
     </div>

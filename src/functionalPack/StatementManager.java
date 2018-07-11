@@ -8,7 +8,7 @@ public class StatementManager {
     public StatementManager(Connection con){
         try {
             state = (Statement) con.createStatement();
-            state.executeQuery("USE"+DBinfo.DATABASE_NAME);
+            state.executeQuery("USE "+DBinfo.DATABASE_NAME);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -55,19 +55,21 @@ public class StatementManager {
 
     public void insertQuiz(String title, String description, String creatorMail){
         String insertCommand = "insert into "+DBinfo.QUIZ_TABLE+" value(";
-        insertCommand += "'"+title+",' '";
+        insertCommand += "'"+title+"', '";
         insertCommand += description+"', '";
         insertCommand += creatorMail+"', 0, 0)";
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
+            System.out.println(insertCommand);
+
             e.printStackTrace();
         }
     }
 
     public int insertQuestion(String quiz, String type, String question, String correctAnswer){
         String insertCommand = "insert into "+DBinfo.QUESTION_TABLE+"(quizTitle, questionType, question, correct)";
-        insertCommand += " value("+"'"+quiz+"', '";
+        insertCommand += " value('"+quiz+"' ,'";
         insertCommand += type+"', '";
         insertCommand += question+"', '";
         insertCommand += correctAnswer+"')";
@@ -86,7 +88,7 @@ public class StatementManager {
 
     public void insertAnswer(int ID, String answer){
         String insertCommand = "insert into "+DBinfo.ANSWER_TABLE+"(questionID, answer)";
-        insertCommand += " value("+"'"+ID+"', '";
+        insertCommand += " value('"+ID+"', '";
         insertCommand += answer+"')";
         try {
             state.execute(insertCommand);

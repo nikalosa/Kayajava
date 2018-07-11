@@ -52,6 +52,18 @@ body {
 .carousel-inner .item .thumbnail {
 	margin-bottom:0;
 }
+
+/* Profile */
+.achievements-bar {
+	border:1px solid #ccc;
+}
+
+.achievements h4 {
+	margin-bottom: 0;
+}
+
+/* Profile End*/
+
 .rowImage{
   float: left;
   width: 33.33%;
@@ -75,6 +87,10 @@ body {
 
 .navbar {
 	border-radius: 0;
+}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+	margin-left: 0;
 }
 
 .form-container {
@@ -170,4 +186,109 @@ body {
 	padding: 10px 5px;
 	margin:0;
 	margin-bottom: 10px;
+}
+
+/* Main Page */
+.main .cover {
+	position:relative;
+	display:table;
+	width:100%;
+	height:70vh;
+	background:url("../store-images/cover.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.main .cover:after {
+	content: " ";
+	z-index: 10;
+	display: block;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.main .cover .description {
+	width:100%;
+	position:absolute;
+	z-index:99;
+	text-align:center;
+	top:40%;
+	color:#fff;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.main .cover .description .btn {
+	font-size:20px;
+}
+
+.main .recents {
+	margin-top: 30px;
+}
+
+.main .recents .recent-box .col-sm-4 {
+	padding: 0;
+}
+
+.main .recents .main-quizzes {
+	background: black;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+.main .recents .main-quizzes .quiz-image {
+	opacity: 1;
+	transition: 0.5s opacity;
+}
+
+.main .recents .main-quizzes .quiz-desc {
+	background-color: rgba(0, 0, 0, 0.6);
+	bottom: 0px;
+	color: white;
+	font-size: 1.4em;
+	left: 0px;
+	padding: 10px 15px;
+	position: absolute;
+	transition: 0.5s padding;
+	text-align: center;
+	width: 100%;
+}
+
+.main .recents .main-quizzes:hover .quiz-image {
+	opacity: 0.7;
+}
+
+.main .recents .main-quizzes:hover .quiz-desc {
+	padding-bottom: 10%;
+}
+
+.main .recents .trending {
+	margin-top:30px;
+}
+
+
+/* Search */
+.search {
+	margin-top:20px;
+}
+.search .search-input-group .input-group-addon{
+	background: #fff;
+}
+
+.search .search-input-group .form-control{
+	border-right:0;
+	box-shadow:0 0 0;
+	border-color:#ccc;
+}
+
+.search .search-input-group button{
+	border:0;
+	background:transparent;
 }
