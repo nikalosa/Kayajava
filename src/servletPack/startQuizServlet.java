@@ -1,7 +1,9 @@
 package servletPack;
 
+import functionalPack.AccountManager;
 import functionalPack.DBinfo;
 import functionalPack.Quiz;
+import functionalPack.StatementManager;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,15 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name = "startQuizServlet")
+@WebServlet(name = "startQuizServlet", urlPatterns = {"/startQuizServlet"})
 public class startQuizServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://" + DBinfo.DATABASE_SERVER, DBinfo.USERNAME, DBinfo.PASSWORD);
-            Statement st = (Statement) con.createStatement();
+            Connection con = AccountManager.getConnection();
+            StatementManager st = new StatementManager(con);
+
+
             boolean shuffle;
             if(request.getParameter("shuffle")!=null){
                 shuffle = true;
@@ -32,11 +34,6 @@ public class startQuizServlet extends HttpServlet {
             request.setAttribute("number","0");
             RequestDispatcher dispatch = request.getRequestDispatcher("duringQuiz.jsp");
             dispatch.forward(request,response);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
 
     }

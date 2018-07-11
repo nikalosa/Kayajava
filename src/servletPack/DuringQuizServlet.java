@@ -17,7 +17,7 @@ public class DuringQuizServlet extends HttpServlet {
         Quiz quiz = (Quiz)request.getSession().getAttribute("quiz");
         int questionNumber = Integer.parseInt((String)request.getAttribute("number"));
         Questions question =  quiz.takeQuestion(questionNumber);
-        //request.removeAttribute("number");
+        request.removeAttribute("number");
         request.setAttribute("number",Integer.toString(questionNumber+1));
         if(question.checkAnswer(request.getParameter("Answer"))){
             response.getWriter().write("Bravoooooooo");
