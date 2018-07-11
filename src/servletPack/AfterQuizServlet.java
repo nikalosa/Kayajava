@@ -23,9 +23,6 @@ public class AfterQuizServlet extends HttpServlet {
                     if(request.getParameter("checkbox"+Integer.toString(i)+"#"+Integer.toString(j))!=null){
                         if(quiz.getQuestion(i).checkAnswer(""+(char)(j+'A'))){
                             quiz.incScore();
-                            System.out.println(quiz.getQuestion().getCorrectAnswer());
-
-                            System.out.println("yeee");
                         }
                     }
                 }
@@ -35,7 +32,6 @@ public class AfterQuizServlet extends HttpServlet {
                 System.out.println(ans);
 
                 if(quiz.getQuestion(i).checkAnswer(ans)){
-                    System.out.println("yeee");
                     quiz.incScore();
                 }
             }

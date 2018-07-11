@@ -3,51 +3,84 @@
 </jsp:include>
 
 <!-- lets make slide with sign up button using bootstrap css -->
+<div class="main">
+	<div class="cover">
+		<div class="description">
+			<h1>CHALLENGE YOUR BRAIN</h1>
+			<br><br>
+			<a href="Quizzies.jsp" class="btn btn-info">See Quizzes</a>
+			<a href="Registration.jsp" class="btn btn-default">Sign Up</a>
+		</div>
+	</div>
 
-<div class="carousel-inner" role="listbox">
-        <div class="item active">
-        <img src= "store-images/shell.jpg" id="main">
-          <div class="carousel-caption d-none d-md-block">
-        
-        <h1>Check your general knowledge</h1>
-        	<a class = "btn btn-lg btn-primary" > Sign Up</a>
-        </div>
-        </div>        
-</div>
+	<div class="container recents">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1 recent-box">
+				<h3>Recent Quizzes <span style="font-size:15px;"><a href="Quizzies.jsp">See More ></a></span></h3>
+				<div class="row" style="margin-left:0; margin-right: 0;">
+					<div class="col-sm-4">
+						<div class="main-quizzes">
+							<a href="#">
+								<img src="//placeimg.com/400/400/animals"  class="quiz-image img-responsive">
+								<span class="quiz-desc">Quiz Title</span>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="main-quizzes">
+							<a href="#">
+								<img src="//placeimg.com/400/400/animals"  class="quiz-image img-responsive">
+								<span class="quiz-desc">Quiz Title</span>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="main-quizzes">
+							<a href="#">
+								<img src="//placeimg.com/400/400/animals"  class="quiz-image img-responsive">
+								<span class="quiz-desc">Quiz Title</span>
+							</a>
+						</div>
+					</div>
+				</div>
 
-<div class="container marketing">
-	<div class= "row"> 
-		<div class= "rowImage" >
-			<img src = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle"  width="140" height="140">
-		<div class="caption"> 
-			<h4>Heading</h4>
-			<p> blablabla</p>
+			</div>
+
+			<div class="col-sm-10 col-sm-offset-1 recent-box trending">
+				<h3>Trending Quizzes <span style="font-size:15px;"><a href="Quizzies.jsp">See More ></a></span></h3>
+				<div class="row" style="margin-left:0; margin-right: 0;">
+					<div class="col-sm-4">
+						<div class="main-quizzes">
+							<a href="#">
+								<img src="//placeimg.com/400/400/animals"  class="quiz-image img-responsive">
+								<span class="quiz-desc">Quiz Title</span>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="main-quizzes">
+							<a href="#">
+								<img src="//placeimg.com/400/400/animals"  class="quiz-image img-responsive">
+								<span class="quiz-desc">Quiz Title</span>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="main-quizzes">
+							<a href="#">
+								<img src="//placeimg.com/400/400/animals"  class="quiz-image img-responsive">
+								<span class="quiz-desc">Quiz Title</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
 		</div>
-		</div>
-		
-		<div class= "rowImage" >
-			<img src = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="  class="img-circle" width="140" height="140">
-		
-		<div class="caption"> 
-			<h4>Heading</h4>
-			<p> blablabla</p>
-		</div>
-		</div>
-		
-		
-		<div class= "rowImage" >
-			<img src = "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle" width="140" height="140">
-		
-		<div class="caption"> 
-			<h4>Heading</h4>
-			<p> blablabla</p>
-		</div>
-		</div>
-		
-		
+
 	</div>
 </div>
-
 
 
 <!-- Footer -->
