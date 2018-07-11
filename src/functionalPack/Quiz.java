@@ -11,14 +11,13 @@ public class Quiz {
     private boolean shuffle;
     ArrayList<Questions> questions;
 
-    public Quiz(String title, Statement state, boolean shuffle){
+    public Quiz(String title, StatementManager manager, boolean shuffle){
         this.title = title;
         this.shuffle = shuffle;
         questions = new ArrayList<Questions>();
         try {
-            state.executeQuery("USE " + DBinfo.DATABASE_NAME);
             //System.out.println("select * from "+DBinfo.QUESTION_TABLE+" where quizTitle="+"\'"+title+"\'");
-            ResultSet questionsSet = state.executeQuery("select * from "+DBinfo.QUESTION_TABLE+" where quizTitle="+"\'"+title+"\'");
+            ResultSet questionsSet = manager.getQuestions(title, shuffle);
             System.out.println("asdasdad");
             while(questionsSet.next()){
                 String questionType = questionsSet.getString(3);
