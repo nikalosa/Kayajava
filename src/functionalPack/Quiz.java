@@ -33,6 +33,10 @@ public class Quiz {
         }
     }
 
+    public int getQuestionNum(){return questions.size();}
+
+    public Questions getQuestion(int index){return questions.get(index);}
+
 
     public Questions takeQuestion(int index){
         return questions.get(index);
