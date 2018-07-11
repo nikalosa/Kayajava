@@ -57,27 +57,24 @@ public class createQuizServlet extends HttpServlet {
             int index = 1;
             while(true) {
                 String question = request.getParameter("quiz-multiple-" + index);
-                int answerindex = index;
+                int answerindex = 1;
                 if(question == null) break;
                 while(true) {
-                    String answer = request.getParameter("quiz-multiple-"+index+"-" +answerindex);
+                    String answer = request.getParameter("quiz-multiple-answer-"+index+"-" +answerindex);
                     if(answer == null) break;
                     int id=0;
-                    if(answerindex ==0) {
+                    if(answerindex == 1) {
                         id = st.insertQuestion(title,quizType,question,answer);
+                        st.insertAnswer(id,answer);
                     }else {
                         st.insertAnswer(id,answer);
                     }
+                    answerindex++;
                 }
                 index ++;
-
             }
-
         }else if(quizType.equals("Picture-Response Questions")) {
             int index = 1;
-            //image-question-1
-            //image-link-1
-            //image-answer-1
             while(true) {
                 String imgQuestion = request.getParameter("image-question-" + index);
                 String imgLink = request.getParameter("image-link-"+index);
@@ -87,14 +84,6 @@ public class createQuizServlet extends HttpServlet {
             }
         }
 
-        ////////////
-        System.out.println(title);
-        System.out.println(imageLink);
-        System.out.println(description);
-        System.out.println(quizType);
-        System.out.println(random);
-        System.out.println(multiple);
-        System.out.println(correction);
         RequestDispatcher dispatch = request.getRequestDispatcher("AfterLogIn.jsp");
         dispatch.forward(request, response);
     }

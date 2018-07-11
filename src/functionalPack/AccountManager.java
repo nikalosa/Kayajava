@@ -66,7 +66,8 @@ public class AccountManager {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://" + DBinfo.DATABASE_SERVER + DBinfo.DATABASE_NAME, DBinfo.USERNAME,
+            connection = DriverManager.getConnection("jdbc:mysql://" + DBinfo.DATABASE_SERVER + DBinfo.DATABASE_NAME
+                    +"?allowPublicKeyRetrieval=true&useSSL=false", DBinfo.USERNAME,
                     DBinfo.PASSWORD);
         } catch (Exception e) {
             e.printStackTrace();

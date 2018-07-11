@@ -20,7 +20,6 @@ public class StatementManager {
         insertCommand += '\''+username+"', '";
         insertCommand += password+"', '";
         insertCommand += mail+"')";
-        System.out.println(insertCommand);
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
@@ -111,9 +110,9 @@ public class StatementManager {
     public ResultSet getQuestions(String quizTitle, boolean rand){
         String selectCommand = "select * from "+DBinfo.QUESTION_TABLE+" where quizTitle="+"\'"+quizTitle+"\'";
         if(rand) {
-            selectCommand += "order by rand()";
+            selectCommand += " order by rand()";
         }else{
-            selectCommand += "order by ID";
+            selectCommand += " order by ID ";
         }
         try {
             ResultSet set = state.executeQuery(selectCommand);
