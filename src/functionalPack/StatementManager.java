@@ -66,19 +66,22 @@ public class StatementManager {
         }
     }
 
-    public int insertQuestion(String quiz, String type, String question, String correctAnswer){
+    public int insertQuestion(String quiz, String type, String question, String correctAnswer, String picture){
         String insertCommand = "insert into "+DBinfo.QUESTION_TABLE+"(quizTitle, questionType, question, correct)";
         insertCommand += " value('"+quiz+"' ,'";
         insertCommand += type+"', '";
         insertCommand += question+"', '";
-        insertCommand += correctAnswer+"')";
+        insertCommand += correctAnswer+"', '";
+        insertCommand += picture+"')";
         try {
             state.execute(insertCommand);
             String selectCommand = "select ID from "+DBinfo.QUESTION_TABLE+" where ";
             selectCommand += "quizTitle='"+quiz+"' and ";
             selectCommand += "question='"+question+"' order by ID desc";
             ResultSet set = state.executeQuery(selectCommand);
-            return set.getInt(1);
+            if(set.next()){
+                return set.getInt(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -113,6 +116,8 @@ public class StatementManager {
             selectCommand += " order by rand()";
         }else{
             selectCommand += " order by ID ";
+=======
+            selectCommand += " order by ID";
         }
         try {
             ResultSet set = state.executeQuery(selectCommand);
@@ -171,7 +176,7 @@ public class StatementManager {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://"+DBinfo.DATABASE_SERVER, DBinfo.USERNAME, DBinfo.PASSWORD);
             StatementManager manager = new StatementManager(con);
-            manager.insertQuestion("kaiQvizi", "prastoi", "ramdenze magaria mixo", "yvelaze");
+            manager.insertQuestion("kaiQvizi", "prastoi", "ramdenze magaria mixo", "yvelaze","");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
