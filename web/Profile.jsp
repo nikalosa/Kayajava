@@ -32,7 +32,9 @@
                 <p><a href="#">NutsaNutsa</a> completed <a href="#">What kind of human are you?</a> quiz. <em>(12 Jun 2018)</em></p>
                 <p><a href="#">NutsaNutsa</a> created quiz <a href="#">What kind of beqa are you?</a> <em>(12 Jun 2018)</em></p>
             </div>
+
             <hr>
+
             <h3>My Created Quizzies</h3>
             <div class="history">
                 <p><a href="#">What kind of beqa are you?</a><em>(12 Jun 2018)</em></p>

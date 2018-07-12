@@ -1,4 +1,5 @@
 <footer class="page-footer container-fluid bla">
+
     <div class="row" style="background-color: #1C2833;">
         <!--  this is written to create opening before headline -->
         <div class="col-md-1 col-sm1 col-xs-1" ></div>

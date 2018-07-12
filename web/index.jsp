@@ -44,6 +44,7 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="col-sm-10 col-sm-offset-1">
 				<hr>
 			</div>
