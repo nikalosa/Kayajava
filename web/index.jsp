@@ -43,8 +43,11 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
+			<div class="col-sm-10 col-sm-offset-1">
+				<hr>
+			</div>
+
 
 			<div class="col-sm-10 col-sm-offset-1 recent-box trending">
 				<h3>Trending Quizzes <span style="font-size:15px;"><a href="Quizzies.jsp">See More ></a></span></h3>

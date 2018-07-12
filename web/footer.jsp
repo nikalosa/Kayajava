@@ -4,38 +4,11 @@
         <div class="col-md-1 col-sm1 col-xs-1" ></div>
 
         <div class="col-md-3 col-lg-3 col-xl-3">
-            <h1 style="color:white;" >KayaJava</h1>
-            <p style="color:white;"> Best Free Website To Test Your General Skills</p>
+            <h1 style="color:white;margin-top:15px; margin-bottom:15px;" >KayaJava</h1>
         </div>
-
-        <!-- this is another 3 part where we will write information -->
-        <div class="col-md-2 col-lg-2 col-xl-2">
-            <h2 style="color:white;">Information</h2>
-            <hr>
-            <p>  <a href="index.jsp" style="color:white;">Home </a></p>
-            <p>  <a href="#!" style="color:white;">About us</a>  </p>
-            <p>  <a href="#!" style="color:white;">Name</a>  </p>
+        <div class="col-md-5 col-md-offset-2" style="text-align: right;">
+            <p style="color:white;line-height:69px;margin-bottom:0;">All Rights Reserved &copy; 2018</p>
         </div>
-
-        <div class="col-md-2 col-lg-2 col-xl-2">
-            <h2 style="color:white;">Info</h2>
-
-            <hr>
-            <p>  <a href="#!" style="color:white;">Name</a>  </p>
-            <p>  <a href="#!" style="color:white;">Name</a>  </p>
-            <p>  <a href="#!" style="color:white;">Name</a>  </p>
-        </div>
-
-        <div class="col-md-2 col-lg-2 col-xl-2">
-            <h2 style="color:white;">Info</h2>
-
-            <hr>
-            <p>  <a href="#!" style="color:white;">Name</a>  </p>
-            <p>  <a href="#!" style="color:white;">Name</a>  </p>
-            <p>  <a href="#!" style="color:white;">Name</a>  </p>
-        </div>
-
-
     </div>
 </footer>
 

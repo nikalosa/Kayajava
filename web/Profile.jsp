@@ -11,8 +11,21 @@
             <span style="line-height:34px;">Add NutsaNutsa as your friend and challenge each other.</span>
             <a href="#" class="btn btn-info" style="float:right">Add Friend</a>
         </div>
+        <div class="container">
+            <div class="search">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="input-group search-input-group">
+                        <input type="text" class="form-control" name="search" placeholder="Search friend" >
+                        <span class="input-group-addon">
+                            <button type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
         <div class="col-md-8">
-            <h3>Recent History <span style="font-size:15px;"><a href="#">See More ></a></span></h3>
+            <h3>Recent History <span style="font-size:15px;"><a href="history.jsp">See More ></a></span></h3>
             <div class="history">
                 <p><a href="#">NutsaNutsa</a> added <a href="#">BeqaKD</a> as friend. <em>(12 Jun 2018)</em></p>
                 <p><a href="#">NutsaNutsa</a> achieved Amateur Author <em>(12 Jun 2018)</em></p>

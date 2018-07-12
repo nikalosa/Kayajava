@@ -250,10 +250,10 @@ body {
 
 .main .recents .main-quizzes .quiz-desc {
 	background-color: rgba(0, 0, 0, 0.6);
-	bottom: 0px;
+	bottom: 0;
 	color: white;
 	font-size: 1.4em;
-	left: 0px;
+	left: 0;
 	padding: 10px 15px;
 	position: absolute;
 	transition: 0.5s padding;
@@ -269,8 +269,19 @@ body {
 	padding-bottom: 10%;
 }
 
-.main .recents .trending {
-	margin-top:30px;
+/* history */
+.recent-history {
+    margin-top: 30px;
+    min-height:70vh;
+}
+.recent-history h3 {
+    display: inline-block;
+    width: 100%;
+    background: #1b6d85;
+    color: #fff;
+    padding: 10px 5px;
+    margin:0;
+    margin-bottom:15px;
 }
 
 
