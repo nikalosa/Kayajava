@@ -37,19 +37,19 @@
                         </div>
                         <div class="form-control">
                             <label for="random">
-                                <input type="checkbox" name="random" id="random" value="Random Questions"> Random Questions
+                                <input type="checkbox" name="random" id="random" value="random"> Random Questions
                             </label>
                         </div>
                         <br>
                         <div class="form-control">
                             <label for="multiple">
-                                <input type="checkbox" name="multiple" id="multiple" value="One Page (checked) vs Multiple page(unchecked)"> One Page (checked) vs Multiple page(unchecked)
+                                <input type="checkbox" name="multiple" id="multiple" value="multiple"> One Page (checked) vs Multiple page(unchecked)
                             </label>
                         </div>
                         <br>
                         <div class="form-control">
                             <label for="correction">
-                                <input type="checkbox" name="correction" id="correction" value="Immediate Correction"> Immediate Correction
+                                <input type="checkbox" name="correction" id="correction" value="correction"> Immediate Correction
                             </label>
                         </div>
                         <br>
@@ -57,11 +57,11 @@
                             <div id="question">
                                 <div class="form-group">
                                     <label for="quiz-question-1">Question 1</label>
-                                    <input type="text" class="form-control" name="quiz-title-1" id="quiz-question-1">
+                                    <input type="text" class="form-control" name="quiz-question-1" id="quiz-question-1">
                                 </div>
                                 <div class="form-group">
                                     <label for="quiz-question-answer-1">Answer</label>
-                                    <input type="text" class="form-control" name="quiz-1-answer-1" id="quiz-question-answer-1">
+                                    <input type="text" class="form-control" name="quiz-question-answer-1" id="quiz-question-answer-1">
                                 </div>
                                 <hr/>
                             </div>

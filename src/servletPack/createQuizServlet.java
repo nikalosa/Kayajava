@@ -20,9 +20,15 @@ public class createQuizServlet extends HttpServlet {
         String imageLink = request.getParameter("imgLink");
         String description = request.getParameter("description");
         /////////////check box
+        boolean ran = false;
+        boolean multiple = false;
+        boolean correction = false;
         String random = request.getParameter("random");
-        String multiple = request.getParameter("multiple");
-        String correction = request.getParameter("correction");
+        String mul = request.getParameter("multiple");
+        String cor = request.getParameter("correction");
+        if(random != null &&random.equals("random")) ran = true;
+        if(mul!= null && mul.equals("multiple")) multiple = true;
+        if(cor!=null && cor.equals("correction")) correction = true;
 
         /////////////quiz type
         String quizType = request.getParameter("quizType");
@@ -31,13 +37,13 @@ public class createQuizServlet extends HttpServlet {
         Connection con = AccountManager.getConnection();
         StatementManager st = new StatementManager(con);
 
-        st.insertQuiz(title,description,(String)request.getSession().getAttribute("email"));
+        st.insertQuiz(title,description,(String)request.getSession().getAttribute("email"),ran,multiple,correction,imageLink);
 
         if(quizType.equals("Question-Response")) {
             int index = 1;
             while(true) {
-                String question = request.getParameter("quiz-title-" +index);
-                String answer = request.getParameter("quiz-" +index+"-answer-1");
+                String question = request.getParameter("quiz-question-" + index);
+                String answer = request.getParameter("quiz-question-answer-"+ index);
                 if(question == null || answer == null) break;
                 index++;
                 st.insertQuestion(title,quizType,question,answer,"");
@@ -78,9 +84,7 @@ public class createQuizServlet extends HttpServlet {
                 String imgQuestion = request.getParameter("image-question-" + index);
                 String imgLink = request.getParameter("image-link-"+index);
                 String imgAnswer = request.getParameter("image-answer-"+index);
-                System.out.println("yle");
                 if(imgQuestion==null || imgLink==null||imgAnswer==null) break;
-                System.out.println("aaraa");
                 st.insertQuestion(title,quizType,imgQuestion ,imgAnswer,imgLink);
                 index++;
             }
