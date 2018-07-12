@@ -20,6 +20,7 @@ public class StatementManager {
         insertCommand += '\''+username+"', '";
         insertCommand += password+"', '";
         insertCommand += mail+"')";
+        System.out.println(insertCommand);
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
@@ -52,11 +53,14 @@ public class StatementManager {
         }
     }
 
-    public void insertQuiz(String title, String description, String creatorMail){
-        String insertCommand = "insert into "+DBinfo.QUIZ_TABLE+" value(";
+    public void insertQuiz(String title, String description, String creatorMail, boolean random, boolean multiPage, boolean immediateCorrection, String picture){
+        String insertCommand = "insert into "+DBinfo.QUIZ_TABLE+"(title, description, creatorMail, numPlayed, sumOfPoints, randQuestions, multiplePage, immediateCorrection, picture)";
+        insertCommand +=" value(";
         insertCommand += "'"+title+"', '";
         insertCommand += description+"', '";
-        insertCommand += creatorMail+"', 0, 0)";
+        insertCommand += creatorMail+"', 0, 0, ";
+        insertCommand += random+", "+multiPage+", "+immediateCorrection+", '";
+        insertCommand += picture+"')";
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
@@ -102,10 +106,24 @@ public class StatementManager {
     }
 
     public ResultSet getQuiz(String quizTitle){
-        String selectCommand = "select * from "+DBinfo.QUIZ_TABLE+" where quizTitle="+"\'"+quizTitle+"\'";
+        String selectCommand = "select * from "+DBinfo.QUIZ_TABLE+" where title="+"\'"+quizTitle+"\'";
         try {
             ResultSet set = state.executeQuery(selectCommand);
             return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String getQuizInformation(int ID, String information){
+        String selectCommand = "select "+information+" from "+DBinfo.QUIZ_TABLE+" where ID="+ID;
+        System.out.println(selectCommand);
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            if(set.next()) {
+                return set.getString(1);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -117,8 +135,7 @@ public class StatementManager {
         if(rand) {
             selectCommand += " order by rand()";
         }else{
-            selectCommand += " order by ID ";
-            selectCommand += " order by ID";
+            selectCommand += " order by ID asc";
         }
         try {
             ResultSet set = state.executeQuery(selectCommand);
@@ -171,6 +188,39 @@ public class StatementManager {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public ResultSet getTrendingQuizzes() {
+        String selectCommand = "select * from "+DBinfo.QUIZ_TABLE+" order by numPlayed desc limit 5";
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getRecentQuizzes() {
+        String selectComand = "select * from "+DBinfo.QUIZ_TABLE+" order by ID desc limit 3";
+        try {
+            ResultSet set = state.executeQuery(selectComand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getTopScorers(String quizTitle) {
+        String selectCommand = "select * from "+DBinfo.DONE_QUIZ_TABLE+" order by result desc limit 5";
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
     public static void main(String[] args) {
         try {
