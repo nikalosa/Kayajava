@@ -16,7 +16,6 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AccountManager manager = (AccountManager)getServletContext().getAttribute("manager");
         String action = request.getParameter("action");
-
         if ("signup".equals(action)) {
             RequestDispatcher dispatch = request.getRequestDispatcher("Registration.jsp");
             dispatch.forward(request,response);
@@ -24,8 +23,9 @@ public class LoginServlet extends HttpServlet {
         } else if ("login".equals(action)) {
             String name = request.getParameter("my_email");
             String pass = request.getParameter("my_password");
+            request.getSession().setAttribute("email",name);
             if(manager.checkAccount(name,pass)) {
-                RequestDispatcher dispatch = request.getRequestDispatcher("AfterLogin.jsp");
+                RequestDispatcher dispatch = request.getRequestDispatcher("AfterLogIn.jsp");
                 dispatch.forward(request,response);
             }else {
                 request.setAttribute("error","Wrong username or password.");

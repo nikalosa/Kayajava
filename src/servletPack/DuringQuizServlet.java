@@ -11,21 +11,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "DuringQuizServlet")
+@WebServlet(name = "DuringQuizServlet", urlPatterns = {"/DuringQuizServlet"})
 public class DuringQuizServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Quiz quiz = (Quiz)request.getSession().getAttribute("quiz");
-        int questionNumber = Integer.parseInt((String)request.getAttribute("number"));
-        Questions question =  quiz.takeQuestion(questionNumber);
-        request.removeAttribute("number");
-        request.setAttribute("number",Integer.toString(questionNumber+1));
-        if(question.checkAnswer(request.getParameter("Answer"))){
-            response.getWriter().write("Bravoooooooo");
-        }else{
-            response.getWriter().write("Loooseeeeeer");
+        RequestDispatcher dispatch;
+        if(quiz.isEnd()){
+            dispatch = request.getRequestDispatcher("afterQuiz.jsp");
+        }else {
+            Questions question = quiz.getQuestion();
+            quiz.nextQuestion();
+            if (question.checkAnswer(request.getParameter("Answer"))) {
+                quiz.incScore();
+                request.setAttribute("status","correct");
+            } else {
+                request.setAttribute("status", "incorrect");
+            }
+            dispatch = request.getRequestDispatcher("duringQuiz.jsp");
         }
-        RequestDispatcher dispatch = request.getRequestDispatcher("duringQuiz.jsp");
-        dispatch.forward(request,response);
+        dispatch.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

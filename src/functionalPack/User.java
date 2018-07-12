@@ -1,16 +1,9 @@
 package functionalPack;
 
 
-//import javafx.util.Pair;
-
-import javafx.util.Pair;
-
 import java.security.MessageDigest;
-
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class User {
@@ -31,37 +24,6 @@ public class User {
     public boolean  checkPassword(String pass){
         return pass.equals(this.password);
     }
-
-
-    public static String hexToString(byte[] bytes) {
-        StringBuffer buff = new StringBuffer();
-        for (int i=0; i<bytes.length; i++) {
-            int val = bytes[i];
-            val = val & 0xff;  // remove higher bits, sign
-            if (val<16) buff.append('0'); // leading 0
-            buff.append(Integer.toString(val, 16));
-        }
-        return buff.toString();
-    }
-    private static void makeDigest() {
-        try {
-            messageDigest = MessageDigest.getInstance("SHA");
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    // this method takes string and using messageDigest generates hash code and  returns it as string
-    private static String makeHashCode(String str) {
-        makeDigest();
-        String s = "";
-        byte[] arr = str.getBytes();
-        arr = messageDigest.digest(arr);
-        s = hexToString(arr);
-        return s;
-    }
-
 
 
     public String getUserName(){
@@ -124,7 +86,7 @@ public class User {
 
 
     ///inner class of Achievements.
-    private class Achievements {
+ /*   private class Achievements {
         HashMap<String, Pair<String, Boolean>> map;
         String [] arr = {"Amateur Author","Prolific Author","Prodigious Author",
                 "Quiz Machine","I am the Greatest","Practice Makes Perfect"};
@@ -168,7 +130,7 @@ public class User {
     }
 
 
-
+*/
 
 
 

@@ -9,6 +9,7 @@ public class Questions {
     private String correctAnswer;
     private int maxScore;
     private String type;
+    private ArrayList < String > possAns;
 
     public String getQuestion(){
         return Question;
@@ -18,6 +19,8 @@ public class Questions {
         return maxScore;
     }
 
+
+
     public Questions(String type, String Question, String correctAnswer) {
 
         this.type = type;
@@ -25,6 +28,38 @@ public class Questions {
         this.correctAnswer = correctAnswer;
         this.maxScore = 1;
 
+    }
+
+
+
+    public Questions(String type, String Question, String correctAnswer, ArrayList<String> possAns){
+        this.type = type;
+        this.Question = Question;
+        this.correctAnswer = correctAnswer;
+        this.maxScore = 1;
+        this.possAns = possAns;
+    }
+
+    public String getCorrectAnswer(){
+        return this.correctAnswer;
+    }
+    public int getPossibleAnswersLen(){
+        return possAns.size();
+    }
+
+    public String getPossibleAnswer(int index){
+        return possAns.get(index);
+    }
+
+    public String getType(){
+        return this.type;
+    }
+
+    public boolean checkAnswer(String answer) {
+
+      //  System.out.println("answer->"+answer+" //// "+"correct->"+correctAnswer);
+        return correctAnswer.equals(answer);
+    }
 
 
         //        if(type.equals("Question-Response")){
@@ -264,10 +299,7 @@ public class Questions {
 //        }
 //    }
 
-    }
+//    }
 
-    public boolean checkAnswer(String answer) {
-        System.out.println("answer->"+answer+" //// "+"correct->"+correctAnswer);
-        return answer.equals(correctAnswer);
-    }
+
 }

@@ -8,7 +8,7 @@ public class StatementManager {
     public StatementManager(Connection con){
         try {
             state = (Statement) con.createStatement();
-            state.executeQuery("USE"+DBinfo.DATABASE_NAME);
+            state.executeQuery("USE "+DBinfo.DATABASE_NAME);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -20,7 +20,6 @@ public class StatementManager {
         insertCommand += '\''+username+"', '";
         insertCommand += password+"', '";
         insertCommand += mail+"')";
-        System.out.println(insertCommand);
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
@@ -55,30 +54,36 @@ public class StatementManager {
 
     public void insertQuiz(String title, String description, String creatorMail){
         String insertCommand = "insert into "+DBinfo.QUIZ_TABLE+" value(";
-        insertCommand += "'"+title+",' '";
+        insertCommand += "'"+title+"', '";
         insertCommand += description+"', '";
         insertCommand += creatorMail+"', 0, 0)";
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
+            System.out.println(insertCommand);
+
             e.printStackTrace();
         }
     }
 
-    public int insertQuestion(String quiz, String type, String question, String correctAnswer){
-        String insertCommand = "insert into "+DBinfo.QUESTION_TABLE+"(quizTitle, questionType, question, correct)";
-        insertCommand += " value("+"'"+quiz+"', '";
+    public int insertQuestion(String quiz, String type, String question, String correctAnswer, String picture){
+        String insertCommand = "insert into "+DBinfo.QUESTION_TABLE+"(quizTitle, questionType, question, correct,picture)";
+        insertCommand += " value('"+quiz+"' ,'";
         insertCommand += type+"', '";
         insertCommand += question+"', '";
-        insertCommand += correctAnswer+"')";
+        insertCommand += correctAnswer+"', '";
+        insertCommand += picture+"')";
         try {
             state.execute(insertCommand);
             String selectCommand = "select ID from "+DBinfo.QUESTION_TABLE+" where ";
             selectCommand += "quizTitle='"+quiz+"' and ";
             selectCommand += "question='"+question+"' order by ID desc";
             ResultSet set = state.executeQuery(selectCommand);
-            return set.getInt(1);
+            if(set.next()){
+                return set.getInt(1);
+            }
         } catch (SQLException e) {
+            System.out.println(insertCommand);
             e.printStackTrace();
         }
         return 0;
@@ -86,11 +91,12 @@ public class StatementManager {
 
     public void insertAnswer(int ID, String answer){
         String insertCommand = "insert into "+DBinfo.ANSWER_TABLE+"(questionID, answer)";
-        insertCommand += " value("+"'"+ID+"', '";
+        insertCommand += " value('"+ID+"', '";
         insertCommand += answer+"')";
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
+            System.out.println(insertCommand);
             e.printStackTrace();
         }
     }
@@ -109,9 +115,10 @@ public class StatementManager {
     public ResultSet getQuestions(String quizTitle, boolean rand){
         String selectCommand = "select * from "+DBinfo.QUESTION_TABLE+" where quizTitle="+"\'"+quizTitle+"\'";
         if(rand) {
-            selectCommand += "order by rand()";
+            selectCommand += " order by rand()";
         }else{
-            selectCommand += "order by ID";
+            selectCommand += " order by ID ";
+            selectCommand += " order by ID";
         }
         try {
             ResultSet set = state.executeQuery(selectCommand);
@@ -170,7 +177,7 @@ public class StatementManager {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://"+DBinfo.DATABASE_SERVER, DBinfo.USERNAME, DBinfo.PASSWORD);
             StatementManager manager = new StatementManager(con);
-            manager.insertQuestion("kaiQvizi", "prastoi", "ramdenze magaria mixo", "yvelaze");
+            manager.insertQuestion("kaiQvizi", "prastoi", "ramdenze magaria mixo", "yvelaze","");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
