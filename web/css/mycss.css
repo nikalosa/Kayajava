@@ -81,10 +81,6 @@ body {
   padding:  20%;
 }
 
-.bla {
-	margin-top:5%;
-}
-
 .navbar {
 	border-radius: 0;
 }
@@ -303,4 +299,47 @@ body {
 .search .search-input-group button{
 	border:0;
 	background:transparent;
+}
+
+/* Starting Quiz */
+.quiz-background {
+	position:relative;
+	height:90vh;
+	background-size:cover;
+}
+
+.quiz-container {
+	position:absolute;
+	z-index:20;
+	width:95%;
+	min-height:100%;
+}
+
+.quiz-background h1,
+.quiz-background p {
+	margin-top:40px;
+	color:#fff;
+	text-align:center;
+}
+
+.quiz-background .btn {
+	margin-top:50px;
+	font-size:25px;
+}
+
+.quiz-background:after {
+	content: " ";
+	z-index: 10;
+	display: block;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.quiz-container,
+.quiz-container .table{
+	color:#fff !important;
 }

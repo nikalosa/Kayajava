@@ -1,6 +1,15 @@
 <html>
 <head>
     <title>${param.title}</title>
+    <link rel="apple-touch-icon" sizes="60x60" href="store-images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="store-images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="store-images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="store-images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="store-images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="store-images/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="store-images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel = "stylesheet" type="text/css" href = "css/bootstrap.min.css">
     <link rel = "stylesheet" type="text/css" href = "css/mycss.css">
