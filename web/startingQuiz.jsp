@@ -3,13 +3,14 @@
 <%@ page import="functionalPack.StatementManager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String id = request.getParameter("name");
+    int id = Integer.parseInt(request.getParameter("id"));
+
     Connection con = AccountManager.getConnection();
     StatementManager st = new StatementManager(con);
     String title = st.getQuizInformation(id, "title");
     String description = st.getQuizInformation(id, "description");
     String image = st.getQuizInformation(id, "picture");
-    String creator = st.getQuizInformation(id, "creator");
+    String creator = st.getQuizInformation(id, "creatorMail");
 %>
 <jsp:include page="header.jsp">
     <jsp:param name="title" value='<%=title%>'/>
@@ -26,7 +27,7 @@
                             <p><%=description%></p>
                         </div>
                         <form action="startQuizServlet" method="post" >
-                            <input type="hidden" name="name" value ="<%=title%>">
+                            <input type="hidden" name="title" value ="<%=title%>">
                             <button class="btn btn-primary btn-block" type ="submit" name="action" value="StartQuiz"> Start Quiz</button>
                         </form>
                         <div class="top-scorers">

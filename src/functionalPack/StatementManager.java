@@ -53,6 +53,53 @@ public class StatementManager {
         }
     }
 
+    private int returnValue(ResultSet set) throws SQLException {
+        set.next();
+        return set.getInt(1);
+    }
+
+    public int getNumPlayed(String quiz){
+        String getNumPlayedCommand = "select numPlayed from "+DBinfo.QUIZ_TABLE+" where title="+"'"+quiz+"'";
+        try {
+            return returnValue(state.executeQuery(getNumPlayedCommand));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public void incNumPlayed(String quiz){
+        String updateCommand = "UPDATE "+DBinfo.QUIZ_TABLE+" SET numPlayed = "+(getNumPlayed(quiz)+1)+
+                " where title="+"'"+quiz+"'";
+        try {
+            state.execute(updateCommand);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getSumPoints(String quiz){
+        String getSumPointsCommand = "select sumOfPoints from "+DBinfo.QUIZ_TABLE+" where title="+"'"+quiz+"'";
+
+        try {
+            return returnValue(state.executeQuery(getSumPointsCommand));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public void incSumPoints(String quiz, int delta){
+        String updateCommand = "UPDATE "+DBinfo.QUIZ_TABLE+" SET sumOfPoints = "+(getSumPoints(quiz)+delta)+
+                " where title="+"'"+quiz+"'";
+        try {
+            state.execute(updateCommand);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public void insertQuiz(String title, String description, String creatorMail, boolean random, boolean multiPage, boolean immediateCorrection, String picture){
         String insertCommand = "insert into "+DBinfo.QUIZ_TABLE+"(title, description, creatorMail, numPlayed, sumOfPoints, randQuestions, multiplePage, immediateCorrection, picture)";
         insertCommand +=" value(";
@@ -64,7 +111,7 @@ public class StatementManager {
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
-            System.out.println(insertCommand);
+           // System.out.println(insertCommand);
 
             e.printStackTrace();
         }
@@ -87,7 +134,7 @@ public class StatementManager {
                 return set.getInt(1);
             }
         } catch (SQLException e) {
-            System.out.println(insertCommand);
+            //System.out.println(insertCommand);
             e.printStackTrace();
         }
         return 0;
@@ -100,7 +147,7 @@ public class StatementManager {
         try {
             state.execute(insertCommand);
         } catch (SQLException e) {
-            System.out.println(insertCommand);
+            //System.out.println(insertCommand);
             e.printStackTrace();
         }
     }
@@ -210,6 +257,19 @@ public class StatementManager {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void insertDoneQuiz(String quizTitle, String mail, int result, String usedTime, String dateTime) throws SQLException {
+
+        String insertCommand = "insert into "+DBinfo.DONE_QUIZ_TABLE+"(playerMail,quizTitle,result,usedTime,startTime) values(";
+        insertCommand += "'"+mail+"',";
+        insertCommand += "'"+quizTitle+"',";
+        insertCommand += result+",";
+        insertCommand += "'"+usedTime+"',";
+        insertCommand += "'"+dateTime+"')";
+        //System.out.println(insertCommand);
+        state.execute(insertCommand);
+
     }
 
     public ResultSet getTopScorers(String quizTitle) {

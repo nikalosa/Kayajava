@@ -20,19 +20,11 @@ public class startQuizServlet extends HttpServlet {
 
         Connection con = AccountManager.getConnection();
         StatementManager st = new StatementManager(con);
-        boolean shuffle;
-        if (request.getParameter("shuffle") != null) {
-            shuffle = true;
-        } else {
-            shuffle = false;
-        }
-        Quiz quiz = new Quiz("Quiz1", st, shuffle);
+        Quiz quiz = null;
+        //System.out.println("asdasd");
+        quiz = new Quiz(request.getParameter("title"), st);
+
         request.getSession().setAttribute("quiz", quiz);
-        try {
-            con.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         RequestDispatcher dispatch = request.getRequestDispatcher("duringQuiz.jsp");
         dispatch.forward(request, response);
     }

@@ -18,7 +18,7 @@ public class AfterQuizServlet extends HttpServlet {
         int len = quiz.numbOfQuestions();
         for(int i=0;i<len;i++){
 
-            if(quiz.getQuestion(i).getType().equals("Multiple Choice")){
+           /* if(quiz.getQuestion(i).getType().equals("Multiple Choice")){
                 for(int j=0;j<quiz.getQuestion().getPossibleAnswersLen();j++){
                     if(request.getParameter("checkbox"+Integer.toString(i)+"#"+Integer.toString(j))!=null){
                         if(quiz.getQuestion(i).checkAnswer(""+(char)(j+'A'))){
@@ -26,18 +26,25 @@ public class AfterQuizServlet extends HttpServlet {
                         }
                     }
                 }
-            }else{
-                String ans = (String) request.getParameter("Answer"+Integer.toString(i));
-                System.out.println(quiz.getQuestion().getCorrectAnswer());
-                System.out.println(ans);
-
+            }else{*/
+                String ans = (String) request.getParameter("Answer"+Integer.toString(i+1));
+                //System.out.println(ans +" ///////// "+ quiz.getQuestion(i).getCorrectAnswer());
                 if(quiz.getQuestion(i).checkAnswer(ans)){
                     quiz.incScore();
                 }
-            }
+            //}
         }
+        quiz.incNumPlayed();
+        quiz.incSumPoints();
+        String time = quiz.addDoneQuiz();
         request.setAttribute("score",Integer.toString(quiz.getScore()));
+        request.setAttribute("numPlayed",Integer.toString(quiz.getNumPlayed()));
+        request.setAttribute("sumPoints",Integer.toString(quiz.getSumPoints()));
+        request.setAttribute("time",time);
+        request.setAttribute("ID",quiz.getID());
+        request.setAttribute("dateTime",quiz.getDateTime());
         RequestDispatcher dispatch = request.getRequestDispatcher("afterQuiz.jsp");
+        request.getSession().removeAttribute("quiz");
         dispatch.forward(request,response);
     }
 
