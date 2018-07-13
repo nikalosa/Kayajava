@@ -1,6 +1,7 @@
 <%@ page import="functionalPack.AccountManager" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="functionalPack.StatementManager" %>
+<%@ page import="java.sql.ResultSet" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String mail = (String) request.getSession().getAttribute("email");
@@ -12,6 +13,10 @@
     String description = st.getQuizInformation(id, "description");
     String image = st.getQuizInformation(id, "picture");
     String creator = st.getQuizInformation(id, "creatorMail");
+
+    ResultSet doneQuizset = null;
+    ////set = top10scorer usin done quiz
+    doneQuizset = st.getTopResults(title);
 %>
 <jsp:include page="header.jsp">
     <jsp:param name="title" value='<%=title%>'/>
@@ -42,18 +47,17 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <%  while(doneQuizset.next()) {
+                                    int index = 1;
+                                %>
                                 <tr>
-                                    <td>1</td>
-                                    <td><a href="Profile.jsp?id=1">NutsaNutsa</a></td>
-                                    <td>9/10</td>
-                                    <td>09:10</td>
+                                    <td><%=index%></td>
+                                    <td><a href="Profile.jsp?mail=<%=doneQuizset.getString(1)%>"><%=doneQuizset.getString(1)%></a></td>
+
+                                    <td><%=doneQuizset.getString(3)%>/</td>
+                                    <td><%=doneQuizset.getString(4)%></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td><a href="Profile.jsp?id=1">beqaKD</a></td>
-                                    <td>8/10</td>
-                                    <td>09:00</td>
-                                </tr>
+                                <%}%>
                                 </tbody>
                             </table>
                         </div>

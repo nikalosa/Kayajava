@@ -11,7 +11,7 @@
 //    st.addFriend(str,friendStr);
 
     String command = "<p><a href=\"# \"> " +str + "</a> wants to be your friend </p>" +
-    " <div class=\"addreject\"> " +" <a href=\"addFriend.jsp?mail=" +friendStr +"&result=accept\" class=\"btn btn-info\">Add Friend</a>" +
+    " <div class=\"addreject\"> " +" <a href=\"addFriend.jsp?mail=" +str +"&result=accept\" class=\"btn btn-info\">Add Friend</a>" +
             " <a href=\"addFriend.jsp?mail=\" +friendStr +\"&result=reject\"" +
             " class=\"btn btn-danger\">Decline</a>\n" +
             "    </div>\n" +

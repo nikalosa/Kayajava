@@ -1,4 +1,6 @@
+create database Quiz_Website;
 USE Quiz_Website;
+
 
 create table User_Table(
     userName varchar(50),
@@ -8,14 +10,11 @@ create table User_Table(
 );
 
 create table Friends(
-	firstMail varchar(50),
+    firstMail varchar(50),
     secondMail varchar(50),
     foreign key (firstMail) references User_Table(mail),
     foreign key (SecondMail) references User_Table(mail)
 );
-create table Friends;
-insert into Friends values("beqakd35@yahoo.com","bgoga16@freeuni.edu.ge");
-
 select* from User_Table;
 create table Quiz (
     ID int auto_increment,
@@ -33,20 +32,19 @@ create table Quiz (
     foreign key (creatorMail)  references User_Table(mail)
 );
 
-select* from Quiz;
 create table Question (
-	ID int not null auto_increment,
+    ID int not null auto_increment,
     quizTitle varchar(100),
     questionType varchar(100),
     question varchar(400),
     correct varchar(100) not null,
-    picture varchar(100),
+    picture varchar(400),
     primary key(ID),
     foreign key (quizTitle) references Quiz(title)
 );
 
 create table Answer (
-	ID int not null auto_increment,
+    ID int not null auto_increment,
     primary key(ID),
     questionID int,
     foreign key(questionID) references Question(ID),
@@ -54,7 +52,7 @@ create table Answer (
 );
 
 create table DoneQuizzes(
-	playerMail varchar(50),
+    playerMail varchar(50),
     quizTitle varchar(100) not null,
     result int not null,
     usedTime time,
@@ -64,7 +62,7 @@ create table DoneQuizzes(
 );
 
 create table History(
-	userMail varchar(50),
+    userMail varchar(50),
     activity varchar(500),
     actTime datetime,
     foreign key (userMail) references User_Table(mail)
@@ -72,7 +70,7 @@ create table History(
 select * from History;
 
 create table Notifications(
-	ID int auto_increment,
+    ID int auto_increment,
     primary key(ID),
     userMail varchar(50) not null,
     notifierMail varchar(50),
@@ -126,8 +124,7 @@ insert into Answer(questionID, answer) values (4,'Roger Moore');
 insert into Answer(questionID, answer) values (4,'Sean Connery');
 insert into Answer(questionID, answer) values (4,'Timothy Dalton');
 
-
-
+ 
 insert into Quiz(title, description, creatorMail, numPlayed, sumOfPoints, randQuestions, multiplePage, immediateCorrection, picture)
     value("Simple Arithmetics", "This quiz is manly about your knowledge in simple arithmetics", "admin@kayajava.com", 0, 0, 0, 0, 0, "https://thumbs.dreamstime.com/z/multiplication-table-3-25805539.jpg");
 insert into Question(quizTitle, questionType, question, correct, picture) value
@@ -140,4 +137,3 @@ insert into Question(quizTitle, questionType, question, correct, picture) value(
 insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "39 / 13 = ?", "3", "");
 insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "7 * 7 = ?", "49", "");
 insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "2700 + 63 = ?", "2763", "");
-

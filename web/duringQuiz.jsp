@@ -94,6 +94,17 @@
                 if (box == null) break;
             }
         }
+        if("<%=correction%>"=="false"&&"<%=multi%>"=="true"){
+            var i = 0;
+            while (true) {
+                i++;
+                var box = document.getElementById("Save" + i);
+                if (box != null) {
+                    box.style.display = "none";
+                }
+                if (box == null) break;
+            }
+        }
     }
     function onSave(id){
         var save = document.getElementById("Save"+id);

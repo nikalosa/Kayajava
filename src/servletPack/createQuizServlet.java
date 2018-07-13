@@ -63,7 +63,7 @@ public class createQuizServlet extends HttpServlet {
                 String after_blank = request.getParameter("after-blank-" + index);
                 if(before_blank == null || blank == null || after_blank == null) break;
                 index++;
-                st.insertQuestion(title,quizType,before_blank+"--------" + after_blank,blank,"");
+                st.insertQuestion(title,quizType,before_blank+"_" + after_blank,blank,"");
             }
         }else if(quizType.equals("Multiple Choice")) {
             int index = 1;

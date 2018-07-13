@@ -19,6 +19,10 @@
         if(st.checkFriend(request.getParameter("mail"),mail)) {
             bol = false;
         }
+    }else {
+        System.out.println("adsdsadsa");
+        String str = (String) request.getSession().getAttribute("email");;
+        if(st.checkFriend(str,mail)) bol = false;
     }
 
     ///friendebi ra.
@@ -88,7 +92,7 @@
             <hr>
             <h3>Friend List</h3>
             <% for(int i =0; i < friendArr.size();i++) {%>
-            <p><a href="Profile.jsp?email = <%=friendArr.get(i)%>"> <%=friendArr.get(i)%></a></p>
+            <p><a href="Profile.jsp?mail=<%=friendArr.get(i)%>"> <%=friendArr.get(i)%></a></p>
             <% }%>
         </div>
     </div>

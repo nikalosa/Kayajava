@@ -428,19 +428,17 @@ public class StatementManager {
                 +second+"';";
         try {
             ResultSet set = state.executeQuery(str);
-            if(!set.next()) return true;
+            if(set.next()) return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
 
-
-
     public void removeNotifications(String first,String second) {
         String str = "delete from Notifications where userMail ='" + first + "' and notifierMail= '"+second+"';";
         try {
-            state.executeQuery(str);
+            state.execute(str);
         } catch (SQLException e) {
             e.printStackTrace();
         }
