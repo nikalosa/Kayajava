@@ -2,6 +2,10 @@
     <jsp:param name="title" value="Search through users"/>
     <jsp:param name="login" value="logged"/>
 </jsp:include>
+<%
+    String mail = (String) request.getSession().getAttribute("email");
+    if(mail == null) response.sendRedirect("index.jsp");
+%>
 <!-- Finish -->
 <div class="container search-users">
     <div class="row">

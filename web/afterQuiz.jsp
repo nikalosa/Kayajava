@@ -3,6 +3,9 @@
 <%@ page import="functionalPack.StatementManager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    String mail = (String) request.getSession().getAttribute("email");
+    if(mail == null) response.sendRedirect("index.jsp");
+
     int id = Integer.parseInt(request.getParameter("name"));
     Connection con = AccountManager.getConnection();
     StatementManager st = new StatementManager(con);

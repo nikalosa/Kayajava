@@ -154,7 +154,9 @@ public class StatementManager {
     }
 
     public ResultSet getQuiz(String quizTitle){
+
         String selectCommand = "select * from "+DBinfo.QUIZ_TABLE+" where title="+"\'"+quizTitle+"\'";
+        if(quizTitle.equals("title")) selectCommand = "select * from "+DBinfo.QUIZ_TABLE+" where title=title";
         try {
             ResultSet set = state.executeQuery(selectCommand);
             return set;
@@ -274,7 +276,7 @@ public class StatementManager {
     }
 
     public ResultSet getTopScorers(String quizTitle) {
-        String selectCommand = "select * from "+DBinfo.DONE_QUIZ_TABLE+" order by result desc limit 5";
+        String selectCommand = "select * from "+DBinfo.DONE_QUIZ_TABLE+" order by result desc limit 10";
         try {
             ResultSet set = state.executeQuery(selectCommand);
             return set;
@@ -297,7 +299,7 @@ public class StatementManager {
     public ResultSet getRecentlyPlayedQuizzes(String mail) {
         String selectCommand = "select ID, title from "+DBinfo.QUIZ_TABLE;
         selectCommand += " inner join "+DBinfo.DONE_QUIZ_TABLE;
-        selectCommand += " where playerMail='"+mail+"' order by startTime";
+        selectCommand += " where playerMail='"+mail+"' order by startTime limit 5";
         try {
             ResultSet set = state.executeQuery(selectCommand);
             return set;
@@ -334,7 +336,7 @@ public class StatementManager {
 
     public ResultSet getHistory(String mail) {
         try {
-            ResultSet set = state.executeQuery("select * from "+DBinfo.HISTORY_TABLE+" where userMail='"+mail+"' order by dateTime desc");
+            ResultSet set = state.executeQuery("select * from "+DBinfo.HISTORY_TABLE+" where userMail='"+mail+"' order by actTime desc");
             return set;
         } catch (SQLException e) {
             e.printStackTrace();

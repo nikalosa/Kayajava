@@ -2,6 +2,9 @@
 <%@ page import="functionalPack.Quiz" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    String mail = (String) request.getSession().getAttribute("email");
+    if(mail == null) response.sendRedirect("index.jsp");
+
     Quiz quiz = (Quiz)request.getSession().getAttribute("quiz");
     String title = quiz.getTitle();
     boolean multi = quiz.getMulti();

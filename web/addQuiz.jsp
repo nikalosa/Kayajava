@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group">
                             <label for="file">Image Link</label>
-                            <input type="text" class="form-control" id="file" name = "imgLink">
+                            <input type="text" class="form-control" id="file" name = "imgLink" required>
                         </div>
 
                         <div class="form-group">

@@ -16,20 +16,28 @@
 </head>
 <body>
 
-
+    <%
+    String str= (String) request.getSession().getAttribute("email");
+    System.out.println(str);
+    boolean logged= false;
+    if(str != null) logged = true;
+%>
 <nav class="navbar navbar-inverse">
     <div class= "container-fluid">
         <div class="navbar-header">
             <img alt="WebLogo" src="store-images/logo.png">
         </div>
+        <%if(!logged) {%>
         <a class="navbar-brand" style="color:white;" href="index.jsp"> KayaJava</a>
-
+        <% }else {%>
+        <a class="navbar-brand" style="color:white;" href="AfterLogIn.jsp"> KayaJava</a>
+        <%}%>
         <!-- lets add some information -->
         <div class="collapse navbar-collapse" id="myCollapseClass">
             <!-- Using unordered list we  add home,login and register -->
             <ul class="nav navbar-nav navbar right navig">
                 <%
-                    if(request.getParameter("login") != null){ %>
+                    if(logged){ %>
                 <li> <a href="AfterLogIn.jsp">Home</a> </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -55,7 +63,7 @@
                 </li>
                 <li> <a href="Quizzies.jsp">Quizzes</a> </li>
                 <li> <a href="Profile.jsp">Profile</a> </li>
-                <li> <a href="logout.jsp">Log Out</a> </li>
+                <li> <a href="logout.jsp"  type ="submit">Log Out</a> </li>
                 <%  } else { %>
                 <li> <a href="index.jsp">Home</a> </li>
                 <li> <a href="Quizzies.jsp">Quizzes</a> </li>

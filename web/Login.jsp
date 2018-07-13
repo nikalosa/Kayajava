@@ -3,7 +3,11 @@
 </jsp:include>
 
 <!-- This is to create opening till center point -->
+<%
+	String mail = (String) request.getSession().getAttribute("email");
+	if(mail != null) response.sendRedirect("AfterLogIn.jsp");
 
+%>
 <div class="bg"> </div>
 <!--  this is to add -->
 <div class="container-fluid">
