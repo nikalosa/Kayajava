@@ -82,6 +82,62 @@ create table Notifications(
 );
 
 
-select* from Notifications;
-delete from Notifications where userMail ="beqakd35@yahoo.com" and notifierMail="bgoga16@freeuni.edu.ge";
-drop table Notifications;
+insert into User_Table(userName, password, mail) values ('admin','admin','admin@kayajava.com');
+insert into Quiz(title, description, creatorMail, numPlayed, sumOfPoints, randQuestions, multiplePage, immediateCorrection, picture) values
+  ('GeneralKnowledge1','General Knowledge','admin@kayajava.com',0,0,1,1,0,'https://kevera.com/useruploads/post/37_1469980191.jpg');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('GeneralKnowledge1','Picture-Response','','The Great Wall of China','http://cdn.playbuzz.com/cdn/7780d1bc-5c0a-4588-85df-a25828dfc426/f814bff1-3871-4cf4-9457-3ccdb3d79b68.jpg');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('GeneralKnowledge1','Picture-Response','','St. Helena','http://cdn.playbuzz.com/cdn/7780d1bc-5c0a-4588-85df-a25828dfc426/125a64d5-9b31-4682-bfdf-d70fc85e7201.jpg');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('GeneralKnowledge1','Picture-Response','','Canberra','http://cdn.playbuzz.com/cdn/7780d1bc-5c0a-4588-85df-a25828dfc426/d12415a2-2a45-496b-8220-cb8630b66594.jpg');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('GeneralKnowledge1','Picture-Response','','Rasputin','http://cdn.playbuzz.com/cdn/7780d1bc-5c0a-4588-85df-a25828dfc426/8d8af227-93ab-4779-84e0-3e344bb848c6.jpg');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('GeneralKnowledge1','Picture-Response','','A Whale Shark','http://cdn.playbuzz.com/cdn/7780d1bc-5c0a-4588-85df-a25828dfc426/85a5c953-843c-4885-85a7-d51c1530a1d6.jpg');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('GeneralKnowledge1','Picture-Response','','Marcel Duchamp','http://cdn.playbuzz.com/cdn/7780d1bc-5c0a-4588-85df-a25828dfc426/197e77c4-ccea-4385-896a-0c0152fc4401.jpg');
+
+
+insert into Quiz(title, description, creatorMail, numPlayed, sumOfPoints, randQuestions, multiplePage, immediateCorrection, picture) values
+  ('MovieQuiz','TV and Movie Quiz','admin@kayajava.com',0,0,1,0,1,'https://i.ytimg.com/vi/VvIEcIwv7QA/hqdefault.jpg');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('MovieQuiz','Multiple Choice','In which year did Chariots of Fire win Best Picture Oscar?','1982','');
+insert into Answer(questionID, answer) values (1,'1986');
+insert into Answer(questionID, answer) values (1,'1984');
+insert into Answer(questionID, answer) values (1,'1982');
+insert into Answer(questionID, answer) values (1,'1980');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('MovieQuiz','Multiple Choice','Which Disney film features a cat called Sergeant Tibbs?','101 Dalmations','');
+insert into Answer(questionID, answer) values (2,'Cinderella');
+insert into Answer(questionID, answer) values (2,'101 Dalmations');
+insert into Answer(questionID, answer) values (2,'Peter Pan');
+insert into Answer(questionID, answer) values (2,'The Lion King');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('MovieQuiz','Multiple Choice','In which film is there a computer named HAL?','2001: A Space Odyssey','');
+insert into Answer(questionID, answer) values (3,'I Robot');
+insert into Answer(questionID, answer) values (3,'2001: A Space Odyssey');
+insert into Answer(questionID, answer) values (3,'The Matrix');
+insert into Answer(questionID, answer) values (3,'A.I.');
+insert into Question (quizTitle, questionType, question, correct, picture) values
+  ('MovieQuiz','Multiple Choice','Who played 007 in the film On Her Majestys Secret Service?','George Lazenby','');
+insert into Answer(questionID, answer) values (4,'George Lazenby');
+insert into Answer(questionID, answer) values (4,'Roger Moore');
+insert into Answer(questionID, answer) values (4,'Sean Connery');
+insert into Answer(questionID, answer) values (4,'Timothy Dalton');
+
+
+
+insert into Quiz(title, description, creatorMail, numPlayed, sumOfPoints, randQuestions, multiplePage, immediateCorrection, picture)
+    value("Simple Arithmetics", "This quiz is manly about your knowledge in simple arithmetics", "admin@kayajava.com", 0, 0, 0, 0, 0, "https://thumbs.dreamstime.com/z/multiplication-table-3-25805539.jpg");
+insert into Question(quizTitle, questionType, question, correct, picture) value
+("Simple Arithmetics", "Question-Response", "17 - 8 = ?", "9", "");
+insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "3 * _ = 12", "4", "");
+insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "21 / 7 = ?", "3", "");
+insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "8 * 7 = ?", "56", "");
+insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "77 / __ = 7", "11", "");
+insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "12 * 5 = ?", "60", "");
+insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "39 / 13 = ?", "3", "");
+insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "7 * 7 = ?", "49", "");
+insert into Question(quizTitle, questionType, question, correct, picture) value("Simple Arithmetics", "Question-Response", "2700 + 63 = ?", "2763", "");
+
