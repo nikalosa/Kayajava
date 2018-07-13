@@ -13,7 +13,10 @@ create table Friends(
     foreign key (firstMail) references User_Table(mail),
     foreign key (SecondMail) references User_Table(mail)
 );
+create table Friends;
+insert into Friends values("beqakd35@yahoo.com","bgoga16@freeuni.edu.ge");
 
+select* from User_Table;
 create table Quiz (
     ID int auto_increment,
     title varchar(100) not null,
@@ -30,6 +33,7 @@ create table Quiz (
     foreign key (creatorMail)  references User_Table(mail)
 );
 
+select* from Quiz;
 create table Question (
 	ID int not null auto_increment,
     quizTitle varchar(100),
@@ -62,5 +66,22 @@ create table DoneQuizzes(
 create table History(
 	userMail varchar(50),
     activity varchar(500),
-    actTime datetime
+    actTime datetime,
+    foreign key (userMail) references User_Table(mail)
 );
+select * from History;
+
+create table Notifications(
+	ID int auto_increment,
+    primary key(ID),
+    userMail varchar(50) not null,
+    notifierMail varchar(50),
+    notification varchar(500),
+    seen boolean,
+    foreign key (userMail) references User_Table(mail)
+);
+
+
+select* from Notifications;
+delete from Notifications where userMail ="beqakd35@yahoo.com" and notifierMail="bgoga16@freeuni.edu.ge";
+drop table Notifications;
