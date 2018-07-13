@@ -15,12 +15,18 @@ create table Friends(
 );
 
 create table Quiz (
-    title varchar(100),
+    ID int auto_increment,
+    title varchar(100) not null,
     description varchar(1000),
     creatorMail varchar(100),
-    primary key(title),
+    primary key(ID),
+    unique key(title),
     numPlayed int,
     sumOfPoints int,
+    randQuestions boolean,
+    multiplePage boolean,
+    immediateCorrection boolean,
+    picture varchar(100),
     foreign key (creatorMail)  references User_Table(mail)
 );
 
