@@ -52,7 +52,7 @@ $(document).ready(function() {
     addAnswer = function (id){
         var answerNum = $("#answerNum-"+id).val();
         var tmp = multiple_answer;
-        var str = "quiz-multiple-answer-"+id+"-1";
+        var str = "quiz-multiple-answer-1-1";
         var re = new RegExp(str, "g");
         tmp = tmp.replace(re, 'quiz-multiple-answer-'+id+'-'+answerNum);
         tmp = tmp.replace(/answer-box-1-1/g, 'answer-box-'+id+'-'+answerNum);

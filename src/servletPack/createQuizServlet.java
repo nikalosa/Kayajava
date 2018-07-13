@@ -17,8 +17,10 @@ public class createQuizServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         AccountManager manager = (AccountManager)getServletContext().getAttribute("manager");
         String title = request.getParameter("title");
+
         String imageLink = request.getParameter("imgLink");
         String description = request.getParameter("description");
+
         /////////////check box
         boolean ran = false;
         boolean multiple = false;
@@ -38,6 +40,11 @@ public class createQuizServlet extends HttpServlet {
         StatementManager st = new StatementManager(con);
 
         st.insertQuiz(title,description,(String)request.getSession().getAttribute("email"),ran,multiple,correction,imageLink);
+        int ID = st.getQuizID(title);
+
+        String command = "<a href='Profile.jsp?mail="+(String)request.getSession().getAttribute("email")+"'>"+(String)request.getSession().getAttribute("email")  +"</a>"
+                + " created Quiz " + "<a href='startingQuiz.jsp?id=" + ID + "'>" + title + "</a>";
+        st.addToHistory((String)request.getSession().getAttribute("email"),command);
 
         if(quizType.equals("Question-Response")) {
             int index = 1;

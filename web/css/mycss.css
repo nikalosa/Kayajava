@@ -46,6 +46,14 @@ body {
 	padding-bottom:0;
 }
 
+.search-users {
+    min-height:85vh;
+}
+
+.search-users li {
+    line-height:40px;
+}
+
 .line1 {
 	border: 2px solid;
 	width:30%;

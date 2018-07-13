@@ -3,6 +3,11 @@
 	<jsp:param name="title" value="Registration"/>
 </jsp:include>
 
+<%
+	String mail = (String) request.getSession().getAttribute("email");
+	if(mail != null) response.sendRedirect("AfterLogIn.jsp");
+
+%>
 <!-- This is to create opening till center point -->
 <div class="bg"> </div>
 

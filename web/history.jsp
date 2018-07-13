@@ -3,6 +3,11 @@
     <jsp:param name="login" value="logged"/>
 </jsp:include>
 <!-- Finish -->
+<%
+    String mail = (String) request.getSession().getAttribute("email");
+    if(mail == null) response.sendRedirect("index.jsp");
+
+%>
 
 <div class="container">
     <div class="row">
