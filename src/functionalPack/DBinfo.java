@@ -11,4 +11,6 @@ public class DBinfo {
     public static final String FRIENDS_TABLE = "Friend";
     public static final String ANSWER_TABLE = "Answer";
     public static final String DONE_QUIZ_TABLE = "DoneQuizzes";
+    public static final String HISTORY_TABLE = "History";
+    public static final String NOTIFICATION_TABLE = "Notifications";
 }

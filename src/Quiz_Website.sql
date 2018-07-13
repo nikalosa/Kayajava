@@ -62,5 +62,16 @@ create table DoneQuizzes(
 create table History(
 	userMail varchar(50),
     activity varchar(500),
-    actTime datetime
+    actTime datetime,
+    foreign key (userMail) references User_Table(mail)
+);
+drop table Notifications;
+create table Notifications(
+	ID int auto_increment,
+    primary key(ID),
+    userMail varchar(50) not null,
+    notifierMail varchar(50),
+    notification varchar(500),
+    seen boolean,
+    foreign key (userMail) references User_Table(mail)
 );
