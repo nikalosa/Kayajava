@@ -27,7 +27,7 @@ public class AfterQuizServlet extends HttpServlet {
                     }
                 }
             }else{*/
-                String ans = (String) request.getParameter("Answer"+Integer.toString(i+1));
+                String ans = request.getParameter("Answer"+Integer.toString(i+1));
                 //System.out.println(ans +" ///////// "+ quiz.getQuestion(i).getCorrectAnswer());
                 if(quiz.getQuestion(i).checkAnswer(ans)){
                     quiz.incScore();
@@ -37,9 +37,9 @@ public class AfterQuizServlet extends HttpServlet {
         quiz.incNumPlayed();
         quiz.incSumPoints();
         String time = quiz.addDoneQuiz();
+
         request.setAttribute("score",Integer.toString(quiz.getScore()));
-        request.setAttribute("numPlayed",Integer.toString(quiz.getNumPlayed()));
-        request.setAttribute("sumPoints",Integer.toString(quiz.getSumPoints()));
+        request.setAttribute("place",quiz.getPlace());
         request.setAttribute("time",time);
         request.setAttribute("ID",quiz.getID());
         request.setAttribute("dateTime",quiz.getDateTime());

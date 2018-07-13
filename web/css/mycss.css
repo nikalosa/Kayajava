@@ -3,20 +3,20 @@ body {
 }
 
 .green {
-    background-color: green;
+	background-color: green;
 }
 
 .dropdown-menu {
-    color:#000;
+	color:#000;
 }
 
 .dropdown-menu .addreject {
-    text-align: center;
+	text-align: center;
 }
 
 .dropdown-menu p {
-    padding: 3px 20px;
-    white-space: nowrap;
+	padding: 3px 20px;
+	white-space: nowrap;
 }
 
 #main{
@@ -46,14 +46,6 @@ body {
 	padding-bottom:0;
 }
 
-.search-users {
-    min-height:85vh;
-}
-
-.search-users li {
-    line-height:40px;
-}
-
 .line1 {
 	border: 2px solid;
 	width:30%;
@@ -72,7 +64,7 @@ body {
 
 .navbar-inverse .navbar-nav .active a, .navbar-inverse .navbar-nav .active a:focus,
 .navbar-inverse .navbar-nav .active a:hover {
-	background-color: #34495E;	
+	background-color: #34495E;
 }
 
 .carousel-inner .item .thumbnail {
@@ -91,20 +83,20 @@ body {
 /* Profile End*/
 
 .rowImage{
-  float: left;
-  width: 33.33%;
-  padding:  10%;
+	float: left;
+	width: 33.33%;
+	padding:  10%;
 }
 .inf {
 	float: right;
 	clear:none;
 	padding-left:10px;
-    margin-top:30px;
+	margin-top:30px;
 }
 
 .caption{
-  width: 33.33%;
-  padding:  20%;
+	width: 33.33%;
+	padding:  20%;
 }
 
 .navbar {
@@ -118,12 +110,12 @@ body {
 .form-container {
 	width:100%;
 	height:100%;
- 	background-color: #F8F9F9;
+	background-color: #F8F9F9;
 }
 .marg {
 	margin-top:30px;
 	clear:both;
-	
+
 }
 
 .bg {
@@ -132,14 +124,14 @@ body {
 
 
 .row::after {
-  content: "";
-  clear: both;
-  display: table;
+	content: "";
+	clear: both;
+	display: table;
 }
 
 .login_box {
-    float: none;
-    margin:0 auto;
+	float: none;
+	margin:0 auto;
 }
 
 /* After Login */
@@ -294,17 +286,17 @@ body {
 
 /* history */
 .recent-history {
-    margin-top: 30px;
-    min-height:70vh;
+	margin-top: 30px;
+	min-height:70vh;
 }
 .recent-history h3 {
-    display: inline-block;
-    width: 100%;
-    background: #1b6d85;
-    color: #fff;
-    padding: 10px 5px;
-    margin:0;
-    margin-bottom:15px;
+	display: inline-block;
+	width: 100%;
+	background: #1b6d85;
+	color: #fff;
+	padding: 10px 5px;
+	margin:0;
+	margin-bottom:15px;
 }
 
 
@@ -368,4 +360,43 @@ body {
 .quiz-container,
 .quiz-container .table{
 	color:#fff !important;
+}
+
+/* During Quiz */
+.quiz-cover {
+	position: relative;
+	background-size: cover;
+	width: 100%;
+	height:50vh;
+}
+
+.quiz-cover h1 {
+	position: absolute;
+	top:40%;
+	z-index: 20;
+	width:95%;
+	color:#fff;
+	text-align:center;
+}
+
+.quiz-cover:after {
+	content: " ";
+	z-index: 10;
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.quiz-questions {
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.radio {
+	margin-left: 30px !important;
 }

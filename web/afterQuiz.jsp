@@ -5,14 +5,13 @@
 <%
     String mail = (String) request.getSession().getAttribute("email");
     if(mail == null) response.sendRedirect("index.jsp");
-
-    int id = Integer.parseInt(request.getParameter("name"));
+    int id = (int) request.getAttribute("ID");
     Connection con = AccountManager.getConnection();
     StatementManager st = new StatementManager(con);
     String title = st.getQuizInformation(id, "title");
     String description = st.getQuizInformation(id, "description");
     String image = st.getQuizInformation(id, "picture");
-    String creator = st.getQuizInformation(id, "creator");
+    String creator = st.getQuizInformation(id, "creatorMail");
 %>
 <jsp:include page="header.jsp">
     <jsp:param name="title" value='<%=title%>'/>

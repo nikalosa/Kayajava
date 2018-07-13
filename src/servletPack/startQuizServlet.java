@@ -1,7 +1,6 @@
 package servletPack;
 
 import functionalPack.AccountManager;
-import functionalPack.DBinfo;
 import functionalPack.Quiz;
 import functionalPack.StatementManager;
 

@@ -25,8 +25,8 @@
     boolean logged= false;
     if(str != null) logged = true;
     Connection con = AccountManager.getConnection();
-    StatementManager st = new StatementManager(con);
-    ResultSet set = st.getNotifications(str);
+    StatementManager stman = new StatementManager(con);
+    ResultSet setunia = stman.getNotifications(str);
 %>
 <nav class="navbar navbar-inverse">
     <div class= "container-fluid">
@@ -50,9 +50,9 @@
                         Notifications <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <% while(set.next()) {%>
+                        <% while(setunia.next()) {%>
                         <li>
-                            <%=set.getString(4)%>
+                            <%=setunia.getString(4)%>
                         </li>
                         <%}%>
                     </ul>

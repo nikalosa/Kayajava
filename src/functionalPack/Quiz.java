@@ -1,5 +1,6 @@
 package functionalPack;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,17 +14,22 @@ public class Quiz {
     private String title;
     private int indexOfQuestion;
     private String dateTime;
+    private boolean multi;
+    private boolean correct;
     private long startTime;
     private int ID;
     private String mail;
-
+    private String image;
     private StatementManager manager;
     ArrayList<Questions> questions;
+
+
 
     public Quiz(String title, StatementManager manager) {
         this.title = title;
         this.score = 0;
         this.indexOfQuestion = 0;
+
         this.manager = manager;
 
         ResultSet quizSet = manager.getQuiz(title);
@@ -36,15 +42,27 @@ public class Quiz {
             quizSet.next();
             this.ID = quizSet.getInt(1);
             this.mail = quizSet.getString(4);
+            this.multi = quizSet.getBoolean(8);
+            this.correct = quizSet.getBoolean(9);
+            this.image = quizSet.getString(10);
             ResultSet questionsSet = manager.getQuestions(title, quizSet.getBoolean(9));
             while(questionsSet.next()){
                 String questionType = questionsSet.getString(3);
                 String question = questionsSet.getString(4);
                 String correctAnswer = questionsSet.getString(5);
-                //System.out.println(questionType);
-                //System.out.println(question);
-                //System.out.println(correctAnswer);
-                questions.add(new Questions(questionType,question,correctAnswer));
+                String image = questionsSet.getString(6);
+                int IDD = questionsSet.getInt(1);
+                if(questionType.equals("Multiple Choice")){
+                    ArrayList<String> possAns = new ArrayList<String>();
+                    Connection con = AccountManager.getConnection();
+                    StatementManager man = new StatementManager(con);
+                    ResultSet st = man.getAnswers(IDD);
+                    while(st.next())
+                        possAns.add(st.getString(3));
+                    questions.add(new Questions(questionType, question, correctAnswer, image, possAns));
+                }else {
+                    questions.add(new Questions(questionType, question, correctAnswer, image));
+                }
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -53,8 +71,11 @@ public class Quiz {
     }
 
     public String getDateTime(){
-       // System.out.println(this.dateTime);
         return this.dateTime;
+    }
+
+    public String getImage(){
+        return image;
     }
 
 
@@ -62,8 +83,7 @@ public class Quiz {
         try {
             long time = System.currentTimeMillis()-startTime;
             String realltime = String.format("%02d:%02d:%02d",(time/(1000*60*60))%24,(time/(1000*60))%60,(time/1000)%60);
-           // System.out.println(realltime);
-            manager.insertDoneQuiz(title,this.mail,getScore(),realltime,dateTime);
+           manager.insertDoneQuiz(title,this.mail,getScore(),realltime,dateTime);
             return realltime;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,11 +96,11 @@ public class Quiz {
     }
 
     public boolean getMulti() throws SQLException {
-        return true;//quizSet.getBoolean(10);
+        return multi;
     }
 
     public boolean getCorrection() throws SQLException {
-        return true;//quizSet.getBoolean(11);
+        return correct;
     }
 
     public void incNumPlayed(){
@@ -142,4 +162,7 @@ public class Quiz {
     }
 
 
+    public int getPlace() {
+        return manager.getRank(title,mail);
+    }
 }
