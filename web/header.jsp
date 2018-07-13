@@ -31,11 +31,32 @@
                 <%
                     if(request.getParameter("login") != null){ %>
                 <li> <a href="AfterLogIn.jsp">Home</a> </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Notifications <span class="badge green">5</span> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <p><a href="">NikaLosa</a> wants to be your friend</p>
+                            <div class="addreject">
+                                <a href="#" class="btn btn-info">Add Friend</a> <a href="#" class="btn btn-danger">Decline</a>
+                            </div>
+                            <hr>
+                        </li>
+                        <li>
+                            <p><a href="">NikaLosa</a> Challenged you on <a href="">What kind of beqa are you?</a></p>
+                            <div class="addreject">
+                                <a href="#" class="btn btn-info">Accept</a> <a href="#" class="btn btn-danger">Reject</a>
+                            </div>
+                            <hr>
+                        </li>
+                        <li><a href="#">See full history</a></li>
+                    </ul>
+                </li>
                 <li> <a href="Quizzies.jsp">Quizzes</a> </li>
                 <li> <a href="Profile.jsp">Profile</a> </li>
                 <li> <a href="logout.jsp">Log Out</a> </li>
                 <%  } else { %>
-
                 <li> <a href="index.jsp">Home</a> </li>
                 <li> <a href="Quizzies.jsp">Quizzes</a> </li>
                 <li> <a href="Login.jsp">Log In</a> </li>

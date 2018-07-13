@@ -1,9 +1,3 @@
-<jsp:include page="header.jsp">
-    <jsp:param name="title" value='<%=title%>'/>
-</jsp:include>
-<h1> <%=request.getAttribute("score")%> </h1>
-</body>
-</html>
 <%@ page import="functionalPack.AccountManager" %>
 <%@ page import="java.sql.Connection" %>
 <%@ page import="functionalPack.StatementManager" %>
@@ -31,10 +25,9 @@
                         <div class="desc">
                             <p><%=description%></p>
                         </div>
-                        <form action="startQuizServlet" method="post" >
-                            <input type="hidden" name="name" value ="<%=title%>">
-                            <button class="btn btn-primary btn-block" type ="submit" name="action" value="StartQuiz"> Start Quiz</button>
-                        </form>
+                        <h3>Quiz Done!</h3>
+                        <h4>You are <%=request.getAttribute("place")%> in top scorers.</h4>
+                        <h4>Score :<%=request.getAttribute("score")%> Time: <%=request.getAttribute("time")%></h4>
                         <div class="top-scorers">
                             <h3>Top 10 Scorers</h3>
                             <table class="table table-responsive">

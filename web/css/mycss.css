@@ -1,6 +1,24 @@
 body {
 	font-family: 'Roboto', sans-serif !important;
 }
+
+.green {
+    background-color: green;
+}
+
+.dropdown-menu {
+    color:#000;
+}
+
+.dropdown-menu .addreject {
+    text-align: center;
+}
+
+.dropdown-menu p {
+    padding: 3px 20px;
+    white-space: nowrap;
+}
+
 #main{
 	height: 80%;
 	width:100%;
