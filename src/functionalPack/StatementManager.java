@@ -1,6 +1,7 @@
 package functionalPack;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class StatementManager {
     Statement state;
@@ -282,12 +283,158 @@ public class StatementManager {
         }
         return null;
     }
+
+    public ResultSet getMyQuizzes(String mail) {
+        try {
+            ResultSet set = state.executeQuery("select * from "+DBinfo.QUIZ_TABLE+" where creatorMail='"+mail+"' order by ID desc");
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getRecentlyPlayedQuizzes(String mail) {
+        String selectCommand = "select ID, title from "+DBinfo.QUIZ_TABLE;
+        selectCommand += " inner join "+DBinfo.DONE_QUIZ_TABLE;
+        selectCommand += " where playerMail='"+mail+"' order by startTime";
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<String> getFriends(String mail){
+        ArrayList<String> result = new ArrayList<>();
+        try {
+            ResultSet set = state.executeQuery("select secondMail from "+DBinfo.FRIENDS_TABLE+" where firstmail='"+mail+"'");
+            while(set.next()) {
+                result.add(set.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public void addToHistory(String mail, String activity, String time) {
+        String insertCommand = "insert into "+DBinfo.HISTORY_TABLE+" values('";
+        insertCommand += mail+"', '";
+        insertCommand += activity+"', '";
+        insertCommand += time+"')";
+        try {
+            state.execute(insertCommand);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet getHistory(String mail) {
+        try {
+            ResultSet set = state.executeQuery("select * from "+DBinfo.HISTORY_TABLE+" where userMail='"+mail+"' order by dateTime desc");
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int getRank(String quiz, String mail) {
+        String selectCommand = "select playerMail from "+DBinfo.DONE_QUIZ_TABLE+" where quizTitle='"+quiz+"' order by result desc, usedTime asc";
+        System.out.println(selectCommand);
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            int count = 1;
+            while(set.next()) {
+                if(set.getString(1).equals(mail))
+                    break;
+                count++;
+            }
+            return count;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public void addNotification(String mail, String notifierMail, String notification) {
+        String insertCommand = "insert into "+DBinfo.NOTIFICATION_TABLE+"(userMail, notifierMail, notification, seen)";
+        insertCommand += " values('"+mail+"', '"+notifierMail+"', '"+notification+"', 0)";
+        System.out.println(insertCommand);
+        try {
+            state.execute(insertCommand);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet getNotifications(String mail) {
+        String selectCommand = "select * from "+DBinfo.NOTIFICATION_TABLE+" where userMail='"+mail+"' order by ID desc";
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getTopResults(String quizTitle) {
+        String selectCommand = "select * from "+DBinfo.DONE_QUIZ_TABLE+" where quizTitle='";
+        selectCommand += quizTitle+"' order by result desc, usedTime asc limit 10";
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ArrayList<String> searchFriends(String friendMail){
+        ArrayList<String> result = new ArrayList<>();
+        String selectCommand = "select mail from "+DBinfo.USER_TABLE+" where mail like '%"+friendMail+"%'";
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            while(set.next()) {
+                result.add(set.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public ResultSet searchQuizzes(String quiz) {
+        String selectCommand = "select * from "+DBinfo.QUIZ_TABLE+" where title like '%"+quiz+"%'";
+        try {
+            ResultSet set = state.executeQuery(selectCommand);
+            return set;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public int getQuizID(String quiz) {
+        try {
+            ResultSet set = state.executeQuery("select ID from "+DBinfo.QUIZ_TABLE+" where title='"+quiz+"'");
+            if(set.next()) {
+                return set.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
     public static void main(String[] args) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://"+DBinfo.DATABASE_SERVER, DBinfo.USERNAME, DBinfo.PASSWORD);
             StatementManager manager = new StatementManager(con);
-            manager.insertQuestion("kaiQvizi", "prastoi", "ramdenze magaria mixo", "yvelaze","");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
