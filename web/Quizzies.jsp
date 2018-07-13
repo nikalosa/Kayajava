@@ -21,7 +21,6 @@
     String recenting = request.getParameter("recent");
     String searchStr = request.getParameter("search");
 
-
     if(trending!= null && trending.equals("true")) {
         trend = true;
     }
@@ -32,7 +31,8 @@
     StatementManager st = new StatementManager(con);
     ResultSet set = null;
     if(searchStr!=null) {
-        //misho.
+        search = true;
+        set = st.searchQuizzes(searchStr);
     }else {
         if (!trend && !recent) set = st.getQuiz("title");
         if (trend) set = st.getTrendingQuizzes();

@@ -1,3 +1,7 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="functionalPack.AccountManager" %>
+<%@ page import="functionalPack.StatementManager" %>
+<%@ page import="java.sql.ResultSet" %>
 <html>
 <head>
     <title>${param.title}</title>
@@ -18,9 +22,11 @@
 
     <%
     String str= (String) request.getSession().getAttribute("email");
-    System.out.println(str);
     boolean logged= false;
     if(str != null) logged = true;
+    Connection con = AccountManager.getConnection();
+    StatementManager st = new StatementManager(con);
+    ResultSet set = st.getNotifications(str);
 %>
 <nav class="navbar navbar-inverse">
     <div class= "container-fluid">
@@ -41,24 +47,14 @@
                 <li> <a href="AfterLogIn.jsp">Home</a> </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Notifications <span class="badge green">5</span> <span class="caret"></span>
+                        Notifications <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
+                        <% while(set.next()) {%>
                         <li>
-                            <p><a href="">NikaLosa</a> wants to be your friend</p>
-                            <div class="addreject">
-                                <a href="#" class="btn btn-info">Add Friend</a> <a href="#" class="btn btn-danger">Decline</a>
-                            </div>
-                            <hr>
+                            <%=set.getString(4)%>
                         </li>
-                        <li>
-                            <p><a href="">NikaLosa</a> Challenged you on <a href="">What kind of beqa are you?</a></p>
-                            <div class="addreject">
-                                <a href="#" class="btn btn-info">Accept</a> <a href="#" class="btn btn-danger">Reject</a>
-                            </div>
-                            <hr>
-                        </li>
-                        <li><a href="#">See full history</a></li>
+                        <%}%>
                     </ul>
                 </li>
                 <li> <a href="Quizzies.jsp">Quizzes</a> </li>

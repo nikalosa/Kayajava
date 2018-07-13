@@ -65,7 +65,7 @@
                                 %>
                                 <tr>
                                     <td><%=index%></td>
-                                    <td><a href="Profile.jsp?id="><%=doneQuizset.getString(1)%></a></td>
+                                    <td><a href="Profile.jsp?mail=<%=doneQuizset.getString(1)%>"><%=doneQuizset.getString(1)%></a></td>
 
                                     <td><%=doneQuizset.getString(3)%>/</td>
                                     <td><%=doneQuizset.getString(4)%></td>
